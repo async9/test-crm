@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import { Root } from './styled';
 
 const Offers: FC = () => {
   return (
-    <div>
+    <Root>
       <h1>Offers page</h1>
-    </div>
+    </Root>
   );
 };
 

@@ -12,7 +12,7 @@ function App() {
     <Layout>
       <Routes>
         <Route element={<ProtectedRoutes />}>
-          <Route path='/' element={<Offers />} />
+          <Route path='/offers' element={<Offers />} />
         </Route>
         <Route path='/login' element={<Auth />}></Route>
         <Route path='*' element={<NotFound />} />

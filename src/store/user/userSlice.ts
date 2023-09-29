@@ -5,8 +5,14 @@ const cookies = new Cookies();
 const getToken = cookies.get('accessToken');
 const accessToken = getToken ? getToken : '';
 
-const initialState: any = {
+type UserStateType = {
+  token: string;
+  username: string;
+};
+
+const initialState: UserStateType = {
   token: accessToken,
+  username: '',
 };
 
 export const userSlice = createSlice({
@@ -18,6 +24,9 @@ export const userSlice = createSlice({
     },
     removeUserToken: (state) => {
       state.token = '';
+    },
+    setUsername: (state, action: PayloadAction<string>) => {
+      state.username = action.payload;
     },
   },
 });

@@ -22,7 +22,6 @@ type InputType = 'email' | 'password';
 
 const AuthForm: FC = () => {
   const dispatch = useAppDispatch();
-
   const [formData, setFormData] = useState({
     client: 'carettatest',
     user: 'agent1',
@@ -39,17 +38,22 @@ const AuthForm: FC = () => {
     if (user && email && password) {
       try {
         const res = await login(formData).unwrap();
-        console.log(res);
         dispatch(userActions.setUserToken(res.token));
-        navigate('/', { replace: true });
-        toast.success('Logged in succesfully', { duration: 4000 });
+        dispatch(userActions.setUsername(res.username));
+
+        navigate('/offers', { replace: true });
+        toast.success('Logged in succesfully', { duration: 3000 });
+
         cookies.set('accessToken', res.token, { path: '/' });
+        cookies.set('username', res.username, { path: '/' });
       } catch (error) {
         if (error instanceof AxiosError && error.response) {
-          toast.success(`Login error: ${error.response}`);
+          toast.error(`Login error: ${error.response}`);
           console.error(error);
         }
       }
+    } else {
+      toast.error('Please enter credentials');
     }
   };
 
