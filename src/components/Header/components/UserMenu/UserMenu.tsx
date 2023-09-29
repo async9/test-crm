@@ -2,10 +2,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { userActions } from '@/store/user/userSlice';
 import { FC, useId, useRef } from 'react';
 import Cookies from 'universal-cookie';
-import userIcon from '@/assets/icons/user.svg';
-import logoutIcon from '@/assets/icons/logout.svg';
 import { IconButton, UserLabel, UserName } from '../../styled';
-import SVG from 'react-inlinesvg';
 import {
   Body,
   Box,
@@ -20,6 +17,7 @@ import {
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { uiActions } from '@/store/ui/uiSlice';
 import { selectUsername } from '@/store/user/userSelects';
+import { ExitIcon, PersonIcon } from '@radix-ui/react-icons';
 
 const cookies = new Cookies();
 
@@ -44,22 +42,22 @@ const UserMenu: FC = () => {
     <Root id={containerId} ref={containerRef}>
       <Top>
         <Row>
-          <SVG src={userIcon} title='User icon' />
+          <PersonIcon width={24} height={24} />
           <Box>
             <UserName>{username}</UserName>
             <UserLabel>Utilizator global</UserLabel>
           </Box>
         </Row>
         <IconButton onClick={handleLogout}>
-          <SVG src={logoutIcon} title='Logout icon' />
+          <ExitIcon />
         </IconButton>
       </Top>
       <Body>
         <Group>
           <Label>SETARI UTILIZATOR</Label>
           <List>
-            <ListItem>Change password</ListItem>
-            <ListItem>Change email</ListItem>
+            <ListItem>Schimba parola</ListItem>
+            <ListItem>Schimba email</ListItem>
           </List>
         </Group>
         <Group>

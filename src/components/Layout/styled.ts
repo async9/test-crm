@@ -1,19 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Overlay = styled.div`
-  position: relative;
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-  }
-`;
-
-export const Content = styled.main`
-  position: relative;
-  z-index: 2;
+export const Content = styled.div<{ showSidebar: boolean }>`
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  transition: 0.3s ease-in;
+  ${({ showSidebar }) =>
+    showSidebar
+      ? css`
+          display: grid;
+          grid-template-columns: 280px 1fr;
+        `
+      : null}
 `;

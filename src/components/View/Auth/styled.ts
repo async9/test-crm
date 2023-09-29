@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  min-height: 100vh;
-  padding: 200px 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 20rem 0;
 `;

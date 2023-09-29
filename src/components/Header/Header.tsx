@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import SVG from 'react-inlinesvg';
 
 import {
   Divider,
@@ -12,14 +11,16 @@ import {
   Box,
 } from './styled';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import userIcon from '@/assets/icons/user.svg';
-import bellIcon from '@/assets/icons/bell.svg';
-import dartIcon from '@/assets/icons/dart.svg';
-import gridIcon from '@/assets/icons/grid.svg';
 import { selectUserToken, selectUsername } from '../../store/user/userSelects';
 import UserMenu from './components/UserMenu/UserMenu';
 import { uiActions } from '@/store/ui/uiSlice';
 import { selectShowUserMenu } from '@/store/ui/uiSelector';
+import {
+  BellIcon,
+  GridIcon,
+  PersonIcon,
+  TargetIcon,
+} from '@radix-ui/react-icons';
 
 const Header: FC = () => {
   const username = useAppSelector(selectUsername);
@@ -34,13 +35,13 @@ const Header: FC = () => {
       <div></div>
       <Row>
         <IconButton>
-          <SVG src={gridIcon} title='Grid icon' />
+          <GridIcon />
         </IconButton>
         <IconButton>
-          <SVG src={dartIcon} title='Dart icon' />
+          <TargetIcon />
         </IconButton>
         <IconButton>
-          <SVG src={bellIcon} title='Bell icon' />
+          <BellIcon />
         </IconButton>
         <Divider />
         <Box>
@@ -48,7 +49,7 @@ const Header: FC = () => {
             active={showUserMenu}
             onClick={() => dispatch(uiActions.showUserMenu(true))}
           >
-            <SVG src={userIcon} title='User icon' />
+            <PersonIcon />
           </IconButton>
           <InnerBox>
             <UserName>{username}</UserName>

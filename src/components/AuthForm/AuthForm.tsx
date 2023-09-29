@@ -17,7 +17,6 @@ import { useNavigate } from 'react-router';
 import { AxiosError } from 'axios';
 
 const cookies = new Cookies();
-
 type InputType = 'email' | 'password';
 
 const AuthForm: FC = () => {
@@ -85,7 +84,8 @@ const AuthForm: FC = () => {
   return (
     <Card size='3'>
       <Flex direction='column' gap='4'>
-        <Heading align='center'>Welcome</Heading>
+        <Heading align='center'>Bun venit</Heading>
+        <Text align='center'>Va rugam sa va autantificati</Text>
         <form onSubmit={handleSubmit}>
           <Flex direction='column' gap='4'>
             <TextField.Input
@@ -101,6 +101,7 @@ const AuthForm: FC = () => {
               placeholder='Password'
             />
             <Button color='indigo'>Login</Button>
+            <Link>Ai uitat parola?</Link>
           </Flex>
         </form>
       </Flex>

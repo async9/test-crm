@@ -43,6 +43,13 @@ const buttonStyles = css`
 
 export const IconButton = styled.button<{ active?: boolean }>`
   ${buttonStyles}
+  svg {
+    width: 24px;
+    height: 24px;
+    path {
+      fill: ${({ theme }) => theme.colors.white};
+    }
+  }
   ${({ active }) =>
     active
       ? css`

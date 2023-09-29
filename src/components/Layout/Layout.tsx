@@ -3,19 +3,25 @@ import { Toaster } from 'react-hot-toast';
 import { Theme } from '@radix-ui/themes';
 
 import Header from '../Header/Header';
-import { Content, Overlay } from './styled';
+import { Content } from './styled';
+import Sidebar from '../Sidebar/Sidebar';
+import { useAppSelector } from '@/hooks/redux';
+import { selectShowSidebar } from '@/store/ui/uiSelector';
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+  const showSidebar = useAppSelector(selectShowSidebar);
+
   return (
     <>
       <Toaster position='top-right'></Toaster>
       <Theme appearance='dark'>
-        <Overlay>
-          <Content>
+        <Content showSidebar={showSidebar}>
+          <Sidebar />
+          <div>
             <Header />
             {children}
-          </Content>
-        </Overlay>
+          </div>
+        </Content>
       </Theme>
     </>
   );

@@ -2,8 +2,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
-const getToken = cookies.get('accessToken');
-const accessToken = getToken ? getToken : '';
+const token = cookies.get('accessToken') || '';
+const username = cookies.get('username') || '';
 
 type UserStateType = {
   token: string;
@@ -11,8 +11,8 @@ type UserStateType = {
 };
 
 const initialState: UserStateType = {
-  token: accessToken,
-  username: '',
+  token,
+  username,
 };
 
 export const userSlice = createSlice({
