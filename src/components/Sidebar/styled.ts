@@ -1,13 +1,9 @@
 import { BREAKPOINTS } from '@/constants';
-import { label } from '@/styles/mixins';
-import { bodyM, bodyS } from '@/styles/typography';
+import { scrollbar } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const Root = styled.aside`
-  transition: 0.3s linear;
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.bgColors.primary};
-  border-right: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 
 export const Top = styled.div`
@@ -16,7 +12,6 @@ export const Top = styled.div`
   align-items: center;
   justify-content: end;
   padding: 0 1.6rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 
 export const Button = styled.button`
@@ -38,5 +33,9 @@ export const Button = styled.button`
 `;
 
 export const Body = styled.div`
+  height: 892px;
+  overflow-y: auto;
   padding: 2rem 0;
+  margin-right: 0.6rem;
+  ${scrollbar}
 `;

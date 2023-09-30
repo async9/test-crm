@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'IBM Plex Sans', sans-serif;
   position: relative;
+  background: #111;
 }
 
 a {

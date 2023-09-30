@@ -8,6 +8,8 @@ import Sidebar from '../Sidebar/Sidebar';
 import { useAppSelector } from '@/hooks/redux';
 import { selectShowSidebar } from '@/store/ui/uiSelector';
 import { selectUserToken } from '@/store/user/userSelects';
+import Auth from '../View/Auth/Auth';
+import bgImage from '@/assets/images/bg.webp';
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const userToken = useAppSelector(selectUserToken);
@@ -16,14 +18,21 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <Toaster position='top-right'></Toaster>
-      <Theme appearance='dark'>
-        <Content showSidebar={showSidebar} token={userToken}>
-          <Sidebar />
-          <div>
-            <Header />
-            {children}
-          </div>
-        </Content>
+      <Theme>
+        {userToken ? (
+          <Content
+            showSidebar={showSidebar}
+            style={{ backgroundImage: `url(${bgImage})` }}
+          >
+            <Sidebar />
+            <div>
+              <Header />
+              {children}
+            </div>
+          </Content>
+        ) : (
+          <Auth />
+        )}
       </Theme>
     </>
   );

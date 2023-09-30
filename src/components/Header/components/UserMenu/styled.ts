@@ -1,6 +1,6 @@
 import { BREAKPOINTS } from '@/constants';
 import { label } from '@/styles/mixins';
-import { bodyS, bodyXS, bodyXXS } from '@/styles/typography';
+import { bodyS } from '@/styles/typography';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -11,7 +11,7 @@ export const Root = styled.div`
   width: 290px;
   overflow: hidden;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.bgColors.primary};
+  background-color: #111;
 `;
 
 export const Top = styled.div`
@@ -48,19 +48,17 @@ export const Group = styled.div`
 `;
 
 export const List = styled.ul`
-  padding: 0.8rem 1.8rem;
+  padding: 1rem;
 `;
 
 export const ListItem = styled.li`
   ${bodyS}
   border-radius: 4px;
   padding: 0.5rem 1.2rem;
-  color: ${({ theme }) => theme.colors.greyLight};
   @media (${BREAKPOINTS.S}) {
     transition: 0.3s linear;
     &:hover {
       cursor: pointer;
-      color: ${({ theme }) => theme.colors.white};
       background-color: ${({ theme }) => theme.colors.primary};
     }
   }

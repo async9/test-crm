@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { BREAKPOINTS } from '../../constants';
-import { bodyXS, bodyXXS } from '@/styles/typography';
+import { bodyS, bodyXS } from '@/styles/typography';
 
 export const Root = styled.header`
   height: 48px;
@@ -8,7 +8,7 @@ export const Root = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.bgColors.primary};
+  border-left: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 
 export const Row = styled.div`
@@ -74,12 +74,12 @@ export const InnerBox = styled.div`
 `;
 
 export const UserName = styled.div`
-  ${bodyXS}
+  ${bodyS}
   font-weight: 500;
 `;
 
 export const UserLabel = styled.div`
-  ${bodyXXS}
+  ${bodyXS}
   font-weight: 500;
   color: ${({ theme }) => theme.colors.greyLight};
 `;

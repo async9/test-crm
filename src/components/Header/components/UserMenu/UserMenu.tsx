@@ -18,6 +18,7 @@ import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { uiActions } from '@/store/ui/uiSlice';
 import { selectUsername } from '@/store/user/userSelects';
 import { ExitIcon, PersonIcon } from '@radix-ui/react-icons';
+import { Theme } from '@radix-ui/themes';
 
 const cookies = new Cookies();
 
@@ -39,35 +40,37 @@ const UserMenu: FC = () => {
   };
 
   return (
-    <Root id={containerId} ref={containerRef}>
-      <Top>
-        <Row>
-          <PersonIcon width={24} height={24} />
-          <Box>
-            <UserName>{username}</UserName>
-            <UserLabel>Utilizator global</UserLabel>
-          </Box>
-        </Row>
-        <IconButton onClick={handleLogout}>
-          <ExitIcon />
-        </IconButton>
-      </Top>
-      <Body>
-        <Group>
-          <Label>SETARI UTILIZATOR</Label>
-          <List>
-            <ListItem>Schimba parola</ListItem>
-            <ListItem>Schimba email</ListItem>
-          </List>
-        </Group>
-        <Group>
-          <Label>ACTIUNE RAPIDE</Label>
-          <List>
-            <ListItem>Mergi la lidu-ri</ListItem>
-          </List>
-        </Group>
-      </Body>
-    </Root>
+    <Theme panelBackground='translucent' radius='small'>
+      <Root id={containerId} ref={containerRef}>
+        <Top>
+          <Row>
+            <PersonIcon width={24} height={24} />
+            <Box>
+              <UserName>{username}</UserName>
+              <UserLabel>Utilizator global</UserLabel>
+            </Box>
+          </Row>
+          <IconButton onClick={handleLogout}>
+            <ExitIcon />
+          </IconButton>
+        </Top>
+        <Body>
+          <Group>
+            <Label>SETARI UTILIZATOR</Label>
+            <List>
+              <ListItem>Schimba parola</ListItem>
+              <ListItem>Schimba email</ListItem>
+            </List>
+          </Group>
+          <Group>
+            <Label>ACTIUNE RAPIDE</Label>
+            <List>
+              <ListItem>Mergi la lidu-ri</ListItem>
+            </List>
+          </Group>
+        </Body>
+      </Root>
+    </Theme>
   );
 };
 

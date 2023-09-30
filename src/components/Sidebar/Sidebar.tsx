@@ -6,6 +6,7 @@ import { selectUserToken } from '@/store/user/userSelects';
 import { uiActions } from '@/store/ui/uiSlice';
 import GroupItems from './GroupItems/GroupItems';
 import { Button, Root, Top, Body } from './styled';
+import { Theme } from '@radix-ui/themes';
 
 const getMenuItems = localStorage.getItem('menuItems') || '';
 const menuItems = JSON.parse(getMenuItems);
@@ -18,18 +19,20 @@ const Sidebar: FC = () => {
   if (!userToken) return null;
 
   return (
-    <Root>
-      <Top>
-        <Button onClick={() => dispatch(uiActions.showSidebar(!showSidebar))}>
-          {showSidebar ? <Cross1Icon /> : <HamburgerMenuIcon />}
-        </Button>
-      </Top>
-      <Body>
-        {menuItems.map((item: any, index: number) => (
-          <GroupItems key={index} label={item.header} items={item.content} />
-        ))}
-      </Body>
-    </Root>
+    <Theme panelBackground='translucent' radius='small'>
+      <Root>
+        <Top>
+          <Button onClick={() => dispatch(uiActions.showSidebar(!showSidebar))}>
+            {showSidebar ? <Cross1Icon /> : <HamburgerMenuIcon />}
+          </Button>
+        </Top>
+        <Body>
+          {menuItems.map((item: any, index: number) => (
+            <GroupItems key={index} label={item.header} items={item.content} />
+          ))}
+        </Body>
+      </Root>
+    </Theme>
   );
 };
 

@@ -7,13 +7,13 @@ import bgImage from '@/assets/images/bg.webp';
 
 const Auth: FC = () => {
   return (
-    <Root style={{ backgroundImage: `url(${bgImage})` }}>
-      <Container size='1'>
-        <Theme panelBackground='translucent' radius='small'>
+    <Theme appearance='dark' panelBackground='translucent' radius='small'>
+      <Root style={{ backgroundImage: `url(${bgImage})` }}>
+        <Container size='1'>
           <AuthForm />
-        </Theme>
-      </Container>
-    </Root>
+        </Container>
+      </Root>
+    </Theme>
   );
 };
 

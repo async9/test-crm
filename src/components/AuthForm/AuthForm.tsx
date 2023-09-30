@@ -37,7 +37,6 @@ const AuthForm: FC = () => {
     if (user && email && password) {
       try {
         const res = await login(formData).unwrap();
-        console.log(res);
         dispatch(userActions.setUserToken(res.token));
         dispatch(userActions.setUsername(res.username));
 

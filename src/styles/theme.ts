@@ -10,9 +10,6 @@ export const defaultTheme: DefaultTheme = {
     greyDark: '#7C7F8F33',
     greyLight: '#E4E7F0CC',
   },
-  bgColors: {
-    primary: '#191D21',
-  },
   fonts: {
     main: 'IBM Plex Sans, sans-serif',
   },
