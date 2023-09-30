@@ -48,7 +48,11 @@ export const ListItem = styled.li`
     transition: 0.3s linear;
   }
   &:hover {
+    cursor: pointer;
     background-color: ${({ theme }) => theme.colors.primary};
+    a {
+      color: ${({ theme }) => theme.colors.white};
+    }
   }
 `;
 
@@ -58,8 +62,5 @@ export const LinkItem = styled.a`
   color: ${({ theme }) => theme.colors.greyLight};
   @media (${BREAKPOINTS.S}) {
     transition: 0.3s linear;
-  }
-  &:hover {
-    color: ${({ theme }) => theme.colors.white};
   }
 `;

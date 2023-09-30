@@ -1,4 +1,4 @@
-import { bodyL, bodyXL } from '@/styles/typography';
+import { bodyL } from '@/styles/typography';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -24,11 +24,15 @@ export const TopSection = styled.section`
   gap: 2.4rem;
 `;
 
-export const CardTitle = styled.div`
-  ${bodyXL}
+export const MainSection = styled.section`
+  margin: 2.4rem 0;
+`;
+
+export const Title = styled.div`
+  ${bodyL}
   color: #18181a;
   font-weight: 700;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 `;
 
 export const ButtonsBox = styled.div`
@@ -47,5 +51,11 @@ export const FiltersTop = styled.div`
 export const SelectsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+`;
+
+export const GridCards = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 `;

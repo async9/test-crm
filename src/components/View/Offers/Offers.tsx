@@ -1,15 +1,17 @@
 import { FC } from 'react';
 import {
   ButtonsBox,
-  CardTitle,
+  Title,
   Root,
   FiltersTop,
   TopSection,
   DividerX,
   Column,
   SelectsContainer,
+  MainSection,
+  GridCards,
 } from './styled';
-import { Button, Card, Theme } from '@radix-ui/themes';
+import { Badge, Button, Card, Flex, Theme } from '@radix-ui/themes';
 import {
   ArrowRightIcon,
   GridIcon,
@@ -23,16 +25,11 @@ import {
   selectDealer,
   selectDepartment,
   selectSearchDealer,
+  selectTimeline,
 } from './constants';
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
-
-// Use for as tags/statuses/etc.
-{
-  /* <Badge color="orange">In progress</Badge>
-<Badge color="blue">In review</Badge>
-<Badge color="green">Complete</Badge> */
-}
+import CardItem from '@/components/CardItem/CardItem';
 
 const Offers: FC = () => {
   const { isMobile } = useScreenSize();
@@ -42,7 +39,7 @@ const Offers: FC = () => {
       <Root style={{ backgroundColor: '#E4E7F0CC' }}>
         <TopSection>
           <Card size={isMobile ? '2' : '3'}>
-            <CardTitle>Totate lidu-rile</CardTitle>
+            <Title>Totate lidu-rile</Title>
             <ButtonsBox>
               <Button color='grass'>
                 <PlusIcon width='16' height='16' /> Adauga lead nou
@@ -63,13 +60,13 @@ const Offers: FC = () => {
           </Card>
 
           <Card size={isMobile ? '2' : '3'}>
-            <CardTitle>Filtre</CardTitle>
+            <Title>Filtre</Title>
             <Column>
               <FiltersTop>
                 <Search />
                 <SelectItems
-                  defaultValue={selectBySearchType[0].value}
-                  items={selectBySearchType}
+                  defaultValue={selectTimeline[0].value}
+                  items={selectTimeline}
                   color='indigo'
                 />
                 <Button>
@@ -102,7 +99,75 @@ const Offers: FC = () => {
             </Column>
           </Card>
         </TopSection>
-        <div></div>
+
+        <MainSection>
+          <GridCards>
+            <div>
+              <Card size='1' style={{ marginBottom: '1rem' }}>
+                <Flex align='center' justify='between' gap='2'>
+                  <Title>Agenda lucru</Title>
+                  <Flex gap='1'>
+                    <Badge color='green' variant='solid'>
+                      24512423
+                    </Badge>
+                    <Badge color='crimson' variant='solid'>
+                      6
+                    </Badge>
+                  </Flex>
+                </Flex>
+              </Card>
+              <CardItem />
+            </div>
+            <div>
+              <Card size='1' style={{ marginBottom: '1rem' }}>
+                <Flex align='center' justify='between' gap='2'>
+                  <Title>Agenda lucru</Title>
+                  <Flex gap='1'>
+                    <Badge color='green' variant='solid'>
+                      24512423
+                    </Badge>
+                    <Badge color='crimson' variant='solid'>
+                      6
+                    </Badge>
+                  </Flex>
+                </Flex>
+              </Card>
+              <CardItem />
+            </div>
+            <div>
+              <Card size='1' style={{ marginBottom: '1rem' }}>
+                <Flex align='center' justify='between' gap='2'>
+                  <Title>Agenda lucru</Title>
+                  <Flex gap='1'>
+                    <Badge color='green' variant='solid'>
+                      24512423
+                    </Badge>
+                    <Badge color='crimson' variant='solid'>
+                      6
+                    </Badge>
+                  </Flex>
+                </Flex>
+              </Card>
+              <CardItem />
+            </div>
+            <div>
+              <Card size='1' style={{ marginBottom: '1rem' }}>
+                <Flex align='center' justify='between' gap='2'>
+                  <Title>Agenda lucru</Title>
+                  <Flex gap='1'>
+                    <Badge color='green' variant='solid'>
+                      24512423
+                    </Badge>
+                    <Badge color='crimson' variant='solid'>
+                      6
+                    </Badge>
+                  </Flex>
+                </Flex>
+              </Card>
+              <CardItem />
+            </div>
+          </GridCards>
+        </MainSection>
       </Root>
     </Theme>
   );

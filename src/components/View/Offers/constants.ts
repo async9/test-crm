@@ -1,3 +1,9 @@
+export const selectTimeline = [
+  { label: 'Luna curenta', value: 'month' },
+  { label: 'Septamana curenta', value: 'week' },
+  { label: 'Ziua curenta', value: 'day' },
+];
+
 export const selectBySearchType = [
   { label: 'Titlu lead', value: 'titluLead' },
   { label: 'Nume client', value: 'numeClient' },
@@ -7,8 +13,8 @@ export const selectBySearchType = [
 ];
 
 export const selectDealer = [
-  { label: 'CARRETA SRL', value: 'carretaSrl' },
-  { label: 'PARTNER EXCLUSIVE', value: 'partnerExclusive' },
+  { label: 'Carreta srl', value: 'carretaSrl' },
+  { label: 'Partner exclusive', value: 'partnerExclusive' },
 ];
 
 export const selectSearchDealer = [
