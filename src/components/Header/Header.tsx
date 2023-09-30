@@ -46,7 +46,7 @@ const Header: FC = () => {
         <Divider />
         <Box>
           <IconButton
-            active={showUserMenu}
+            showMenu={showUserMenu}
             onClick={() => dispatch(uiActions.showUserMenu(true))}
           >
             <PersonIcon />

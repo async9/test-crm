@@ -6,7 +6,7 @@ type UiStateType = {
 };
 
 const initialState: UiStateType = {
-  showSidebar: false,
+  showSidebar: true,
   showUserMenu: false,
 };
 

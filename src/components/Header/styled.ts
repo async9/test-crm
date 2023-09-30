@@ -41,7 +41,7 @@ const buttonStyles = css`
   }
 `;
 
-export const IconButton = styled.button<{ active?: boolean }>`
+export const IconButton = styled.button<{ showMenu?: boolean }>`
   ${buttonStyles}
   svg {
     width: 24px;
@@ -50,8 +50,8 @@ export const IconButton = styled.button<{ active?: boolean }>`
       fill: ${({ theme }) => theme.colors.white};
     }
   }
-  ${({ active }) =>
-    active
+  ${({ showMenu }) =>
+    showMenu
       ? css`
           svg {
             path {

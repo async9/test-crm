@@ -1,4 +1,5 @@
 import { BREAKPOINTS } from '@/constants';
+import { label } from '@/styles/mixins';
 import { bodyS, bodyXS, bodyXXS } from '@/styles/typography';
 import styled from 'styled-components';
 
@@ -39,12 +40,7 @@ export const Body = styled.div`
 
 export const Label = styled.div`
   ${bodyS}
-  font-weight: 700;
-  width: max-content;
-  border-radius: 0 4px 4px 0;
-  padding: 0.5rem 1.2rem;
-  color: ${({ theme }) => theme.bgColors.primary};
-  background-color: ${({ theme }) => theme.colors.greyLight};
+  ${label}
 `;
 
 export const Group = styled.div`

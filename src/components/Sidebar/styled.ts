@@ -1,8 +1,11 @@
 import { BREAKPOINTS } from '@/constants';
+import { label } from '@/styles/mixins';
+import { bodyM, bodyS } from '@/styles/typography';
 import styled from 'styled-components';
 
-export const Root = styled.aside<{ active: boolean }>`
+export const Root = styled.aside`
   transition: 0.3s linear;
+  color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.bgColors.primary};
   border-right: 1px solid ${({ theme }) => theme.colors.grey};
 `;
@@ -32,4 +35,8 @@ export const Button = styled.button`
       }
     }
   }
+`;
+
+export const Body = styled.div`
+  padding: 2rem 0;
 `;

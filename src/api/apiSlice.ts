@@ -4,7 +4,7 @@ export const apiSlice = createApi({
   reducerPath: 'apiSlice',
   keepUnusedDataFor: 60,
   baseQuery: fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_DOMAIN}/${
+    baseUrl: `${import.meta.env.VITE_API_DOMAIN}/${
       import.meta.env.VITE_API_VERSION
     }`,
   }),

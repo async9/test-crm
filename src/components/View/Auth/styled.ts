@@ -5,5 +5,6 @@ export const Root = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  width: 100wh;
   padding: 20rem 0;
 `;

@@ -18,3 +18,18 @@ export const bodyS = css`
   ${color};
   font-size: 1.4rem;
 `;
+
+export const bodyM = css`
+  ${color};
+  font-size: 1.6rem;
+`;
+
+export const bodyL = css`
+  ${color};
+  font-size: 1.8rem;
+`;
+
+export const bodyXL = css`
+  ${color};
+  font-size: 2rem;
+`;
