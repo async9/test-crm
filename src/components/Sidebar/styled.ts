@@ -35,6 +35,7 @@ export const Button = styled.button`
 export const Body = styled.div`
   height: 892px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 2rem 0;
   margin-right: 0.6rem;
   ${scrollbar}

@@ -32,7 +32,7 @@ export const Title = styled.div`
   ${bodyL}
   color: #18181a;
   font-weight: 700;
-  /* margin-bottom: 2rem; */
+  margin-bottom: 2rem;
 `;
 
 export const ButtonsBox = styled.div`

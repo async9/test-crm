@@ -11,7 +11,7 @@ import {
   MainSection,
   GridCards,
 } from './styled';
-import { Badge, Button, Card, Flex, Theme } from '@radix-ui/themes';
+import { Button, Card, Theme } from '@radix-ui/themes';
 import {
   ArrowRightIcon,
   GridIcon,
@@ -29,7 +29,7 @@ import {
 } from './constants';
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
-import CardItem from '@/components/CardItem/CardItem';
+import StatusColumn from './components/StatusColumn/StatusColumn';
 
 const Offers: FC = () => {
   const { isMobile } = useScreenSize();
@@ -102,70 +102,10 @@ const Offers: FC = () => {
 
         <MainSection>
           <GridCards>
-            <div>
-              <Card size='1' style={{ marginBottom: '1rem' }}>
-                <Flex align='center' justify='between' gap='2'>
-                  <Title>Agenda lucru</Title>
-                  <Flex gap='1'>
-                    <Badge color='green' variant='solid'>
-                      24512423
-                    </Badge>
-                    <Badge color='crimson' variant='solid'>
-                      6
-                    </Badge>
-                  </Flex>
-                </Flex>
-              </Card>
-              <CardItem />
-            </div>
-            <div>
-              <Card size='1' style={{ marginBottom: '1rem' }}>
-                <Flex align='center' justify='between' gap='2'>
-                  <Title>Agenda lucru</Title>
-                  <Flex gap='1'>
-                    <Badge color='green' variant='solid'>
-                      24512423
-                    </Badge>
-                    <Badge color='crimson' variant='solid'>
-                      6
-                    </Badge>
-                  </Flex>
-                </Flex>
-              </Card>
-              <CardItem />
-            </div>
-            <div>
-              <Card size='1' style={{ marginBottom: '1rem' }}>
-                <Flex align='center' justify='between' gap='2'>
-                  <Title>Agenda lucru</Title>
-                  <Flex gap='1'>
-                    <Badge color='green' variant='solid'>
-                      24512423
-                    </Badge>
-                    <Badge color='crimson' variant='solid'>
-                      6
-                    </Badge>
-                  </Flex>
-                </Flex>
-              </Card>
-              <CardItem />
-            </div>
-            <div>
-              <Card size='1' style={{ marginBottom: '1rem' }}>
-                <Flex align='center' justify='between' gap='2'>
-                  <Title>Agenda lucru</Title>
-                  <Flex gap='1'>
-                    <Badge color='green' variant='solid'>
-                      24512423
-                    </Badge>
-                    <Badge color='crimson' variant='solid'>
-                      6
-                    </Badge>
-                  </Flex>
-                </Flex>
-              </Card>
-              <CardItem />
-            </div>
+            <StatusColumn variant='CONTACT' label='Agenda lucru' />
+            <StatusColumn variant='OFERTA' label='Oferte' />
+            <StatusColumn variant='NU_ACUM' label='Nu acum' />
+            <StatusColumn variant='COMANDA' label='Comenzi' />
           </GridCards>
         </MainSection>
       </Root>
