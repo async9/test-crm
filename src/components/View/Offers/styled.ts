@@ -1,11 +1,15 @@
+import { BREAKPOINTS } from '@/constants';
 import { bodyL } from '@/styles/typography';
 import styled from 'styled-components';
 
 export const Root = styled.div`
   min-height: 100vh;
   margin-top: 4.8rem;
-  padding: 2.4rem;
+  padding: 1.6rem;
   overflow: hidden;
+  @media (${BREAKPOINTS.S}) {
+    padding: 2.4rem;
+  }
 `;
 
 export const Column = styled.div`
@@ -14,16 +18,14 @@ export const Column = styled.div`
   row-gap: 2rem;
 `;
 
-export const DividerX = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: ${({ theme }) => theme.colors.greyLight};
-`;
-
 export const TopSection = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  gap: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  @media (${BREAKPOINTS.S}) {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 2.4rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -34,10 +36,12 @@ export const Title = styled.div`
 `;
 
 export const ButtonsBox = styled.div`
-  width: max-content;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   gap: 1rem;
+  /* @media (min-width: 540px) {
+    flex-direction: row;
+  } */
 `;
 
 export const FiltersTop = styled.div`
@@ -48,8 +52,15 @@ export const FiltersTop = styled.div`
 
 export const SelectsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr;
+  /* grid-template-columns: repeat(auto-fill, 200px); */
   gap: 1rem;
+  @media (${BREAKPOINTS.M}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (${BREAKPOINTS.L}) {
+    grid-template-columns: repeat(5, 1fr);
+  }
 `;
 
 export const MainSection = styled.section`
@@ -60,6 +71,6 @@ export const MainSection = styled.section`
 
 export const GridCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(4, minmax(300px, 100%));
   gap: 1rem;
 `;

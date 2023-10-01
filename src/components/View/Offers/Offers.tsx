@@ -5,7 +5,6 @@ import {
   Root,
   FiltersTop,
   TopSection,
-  DividerX,
   Column,
   SelectsContainer,
   MainSection,
@@ -30,6 +29,7 @@ import {
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
 import CardsColumn from './components/CardsColumn/CardsColumn';
+import { DividerX, DividerY } from '@/styles/mixins';
 
 const Offers: FC = () => {
   const { isMobile } = useScreenSize();
@@ -41,25 +41,32 @@ const Offers: FC = () => {
           <Card size={isMobile ? '2' : '3'}>
             <Title>Totate lidu-rile</Title>
             <ButtonsBox>
-              <Button color='grass'>
-                <PlusIcon width='16' height='16' /> Adauga lead nou
-              </Button>
-              <Button>
-                <ArrowRightIcon />
-                Vezi stocuri
-              </Button>
-              <Button>
-                <GridIcon />
-                Visibilitate coloane
-              </Button>
-              <DividerX />
-              <Button variant='outline'>Sarcini expirate</Button>
-              <Button variant='outline'>Sarcini astazi</Button>
-              <Button variant='outline'>Sarcini lunare</Button>
+              <div>
+                <Button color='grass'>
+                  <PlusIcon width='16' height='16' /> Adauga lead nou
+                </Button>
+                <Button>
+                  <ArrowRightIcon />
+                  Vezi stocuri
+                </Button>
+                <Button>
+                  <GridIcon />
+                  Visibilitate coloane
+                </Button>
+              </div>
+              <DividerY />
+              <div>
+                <Button variant='outline'>Sarcini expirate</Button>
+                <Button variant='outline'>Sarcini astazi</Button>
+                <Button variant='outline'>Sarcini lunare</Button>
+              </div>
             </ButtonsBox>
           </Card>
 
-          <Card size={isMobile ? '2' : '3'}>
+          <Card
+            size={isMobile ? '2' : '3'}
+            style={{ marginTop: isMobile ? '2.4rem' : '' }}
+          >
             <Title>Filtre</Title>
             <Column>
               <FiltersTop>
@@ -73,7 +80,6 @@ const Offers: FC = () => {
                   <UpdateIcon />
                 </Button>
               </FiltersTop>
-              <DividerX />
               <SelectsContainer>
                 <SelectItems
                   defaultValue={selectBySearchType[0].value}

@@ -1,4 +1,17 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+export const DividerX = styled.div`
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0;
+  background-color: ${({ theme }) => theme.colors.greyLight};
+`;
+
+export const DividerY = styled.div`
+  width: 1px;
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.greyLight};
+`;
 
 export const label = css`
   text-transform: uppercase;

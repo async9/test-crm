@@ -1,29 +1,17 @@
 import { FC } from 'react';
-import { Badge, Card, Flex } from '@radix-ui/themes';
+import { Badge, Button, Card, Flex } from '@radix-ui/themes';
 import {
+  ArrowRightIcon,
   CalendarIcon,
   ImageIcon,
   MobileIcon,
   PersonIcon,
 } from '@radix-ui/react-icons';
-import { DividerX, Text, Title } from './styled';
+import { Text, Title } from './styled';
+import { StatusDataType } from '../../types';
+import { DividerX } from '@/styles/mixins';
 
-const CardItem: FC<{
-  data: {
-    title: string;
-    subtitle: string;
-    lastStatusDate: string;
-    contactName: string;
-    contactPhone: string;
-    offers: number;
-    totalPrice: number;
-    commandDetails: {
-      commandId: string;
-      commandNumber: string;
-      commandSeries: string;
-    };
-  };
-}> = ({ data }) => {
+const CardItem: FC<{ data: StatusDataType }> = ({ data }) => {
   const {
     title,
     subtitle,
@@ -32,12 +20,27 @@ const CardItem: FC<{
     contactPhone,
     offers,
     totalPrice,
+    address,
     commandDetails,
+    rootUuid,
   } = data;
 
   return (
     <Card size='1' style={{ marginTop: '1rem' }}>
-      <Title>{title}</Title>
+      <Flex align='center' justify='between'>
+        <Title>{title}</Title>
+        <Button
+          onClick={() =>
+            (window.location.href = `${
+              import.meta.env.VITE_DOMAIN
+            }/#/offers/details/${rootUuid}`)
+          }
+          color='blue'
+          variant='soft'
+        >
+          <ArrowRightIcon />
+        </Button>
+      </Flex>
       <DividerX />
       <div>
         <Flex align='center'>
@@ -61,11 +64,19 @@ const CardItem: FC<{
             {totalPrice}
           </Badge>
         </Flex>
+        {address && address.address ? (
+          <Flex align='center'>
+            <Text>Address:</Text>
+            <Badge color='blue' variant='soft'>
+              {address.address}, {address.city}
+            </Badge>
+          </Flex>
+        ) : null}
         {commandDetails && commandDetails.commandNumber ? (
           <Flex align='center'>
             <Text>Comanda:</Text>
-            <Badge color='blue' variant='soft'>
-              {commandDetails.commandNumber}
+            <Badge color='orange' variant='soft'>
+              {commandDetails?.commandNumber}
             </Badge>
           </Flex>
         ) : null}

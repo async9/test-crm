@@ -1,12 +1,14 @@
-import { Badge, Card, Flex } from '@radix-ui/themes';
 import { FC, useEffect } from 'react';
-import CardItem from '../CardItem/CardItem';
-import { Title } from './styled';
+import { Badge, Card, Flex } from '@radix-ui/themes';
+
 import { useStatusMutation } from '@/api/statusSlice';
-import Loader from '../Loader/FieldLoader';
+import { StatusDataType, StatusDataVariantType } from '../../types';
+import { Title } from './styled';
+import CardItem from '../CardItem/CardItem';
+import Loader from '../FieldLoader/FieldLoader';
 
 const CardsColumn: FC<{
-  variant: 'OFERTA' | 'CONTACT' | 'NU_ACUM' | 'COMANDA';
+  variant: StatusDataVariantType;
   label: string;
 }> = ({ variant, label }) => {
   const [status, { data, isLoading, isError, error }] = useStatusMutation();
@@ -36,7 +38,7 @@ const CardsColumn: FC<{
             </Flex>
           </Flex>
         </Card>
-        {data.map((item: any, index: number) => (
+        {data.map((item: StatusDataType, index: number) => (
           <CardItem key={index} data={item} />
         ))}
       </>
