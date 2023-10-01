@@ -9,5 +9,12 @@ export const Title = styled.div`
 `;
 
 export const Text = styled.span`
-  margin-left: 0.8rem;
+  margin: 0 0.8rem;
+`;
+
+export const DividerX = styled.div`
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0;
+  background-color: ${({ theme }) => theme.colors.greyLight};
 `;

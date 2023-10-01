@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { Card, Flex } from '@radix-ui/themes';
+import { Badge, Card, Flex } from '@radix-ui/themes';
 import {
   CalendarIcon,
   ImageIcon,
   MobileIcon,
   PersonIcon,
 } from '@radix-ui/react-icons';
-import { Text, Title } from './styled';
+import { DividerX, Text, Title } from './styled';
 
 const CardItem: FC<{
   data: {
@@ -17,6 +17,11 @@ const CardItem: FC<{
     contactPhone: string;
     offers: number;
     totalPrice: number;
+    commandDetails: {
+      commandId: string;
+      commandNumber: string;
+      commandSeries: string;
+    };
   };
 }> = ({ data }) => {
   const {
@@ -27,11 +32,13 @@ const CardItem: FC<{
     contactPhone,
     offers,
     totalPrice,
+    commandDetails,
   } = data;
 
   return (
-    <Card size='1'>
+    <Card size='1' style={{ marginTop: '1rem' }}>
       <Title>{title}</Title>
+      <DividerX />
       <div>
         <Flex align='center'>
           <ImageIcon /> <Text>{subtitle}</Text>
@@ -46,11 +53,22 @@ const CardItem: FC<{
           <MobileIcon /> <Text>{contactPhone}</Text>
         </Flex>
       </div>
+      <DividerX />
       <div>
-        <Flex align='center'>
+        <Flex align='center' style={{ marginBottom: '0.4rem' }}>
           <Text>Agent - Oferte: {offers}</Text>
-          <span>({totalPrice})</span>
+          <Badge color='green' variant='soft'>
+            {totalPrice}
+          </Badge>
         </Flex>
+        {commandDetails && commandDetails.commandNumber ? (
+          <Flex align='center'>
+            <Text>Comanda:</Text>
+            <Badge color='blue' variant='soft'>
+              {commandDetails.commandNumber}
+            </Badge>
+          </Flex>
+        ) : null}
       </div>
     </Card>
   );

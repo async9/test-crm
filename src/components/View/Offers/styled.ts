@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 export const Root = styled.div`
   min-height: 100vh;
+  margin-top: 4.8rem;
   padding: 2.4rem;
+  overflow: hidden;
 `;
 
 export const Column = styled.div`
@@ -22,10 +24,6 @@ export const TopSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 5fr;
   gap: 2.4rem;
-`;
-
-export const MainSection = styled.section`
-  margin: 2.4rem 0;
 `;
 
 export const Title = styled.div`
@@ -54,8 +52,14 @@ export const SelectsContainer = styled.div`
   gap: 1rem;
 `;
 
+export const MainSection = styled.section`
+  overflow-x: auto;
+  margin-top: 2.4rem;
+  padding-bottom: 2rem;
+`;
+
 export const GridCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 300px);
   gap: 1rem;
 `;

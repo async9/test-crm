@@ -21,6 +21,7 @@ import {
   PersonIcon,
   TargetIcon,
 } from '@radix-ui/react-icons';
+import { Theme } from '@radix-ui/themes';
 
 const Header: FC = () => {
   const username = useAppSelector(selectUsername);
@@ -31,34 +32,36 @@ const Header: FC = () => {
   if (!userToken) return null;
 
   return (
-    <Root>
-      <div></div>
-      <Row>
-        <IconButton>
-          <GridIcon />
-        </IconButton>
-        <IconButton>
-          <TargetIcon />
-        </IconButton>
-        <IconButton>
-          <BellIcon />
-        </IconButton>
-        <Divider />
-        <Box>
-          <IconButton
-            showMenu={showUserMenu}
-            onClick={() => dispatch(uiActions.showUserMenu(true))}
-          >
-            <PersonIcon />
+    <Theme appearance='dark' panelBackground='solid'>
+      <Root>
+        <div></div>
+        <Row>
+          <IconButton>
+            <GridIcon />
           </IconButton>
-          <InnerBox>
-            <UserName>{username}</UserName>
-            <UserLabel>Utilizator global</UserLabel>
-          </InnerBox>
-          {showUserMenu ? <UserMenu /> : null}
-        </Box>
-      </Row>
-    </Root>
+          <IconButton>
+            <TargetIcon />
+          </IconButton>
+          <IconButton>
+            <BellIcon />
+          </IconButton>
+          <Divider />
+          <Box>
+            <IconButton
+              showMenu={showUserMenu}
+              onClick={() => dispatch(uiActions.showUserMenu(true))}
+            >
+              <PersonIcon />
+            </IconButton>
+            <InnerBox>
+              <UserName>{username}</UserName>
+              <UserLabel>Utilizator global</UserLabel>
+            </InnerBox>
+            {showUserMenu ? <UserMenu /> : null}
+          </Box>
+        </Row>
+      </Root>
+    </Theme>
   );
 };
 

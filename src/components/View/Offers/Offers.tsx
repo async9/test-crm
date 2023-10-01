@@ -29,7 +29,7 @@ import {
 } from './constants';
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
-import StatusColumn from './components/StatusColumn/StatusColumn';
+import CardsColumn from './components/CardsColumn/CardsColumn';
 
 const Offers: FC = () => {
   const { isMobile } = useScreenSize();
@@ -102,10 +102,10 @@ const Offers: FC = () => {
 
         <MainSection>
           <GridCards>
-            <StatusColumn variant='CONTACT' label='Agenda lucru' />
-            <StatusColumn variant='OFERTA' label='Oferte' />
-            <StatusColumn variant='NU_ACUM' label='Nu acum' />
-            <StatusColumn variant='COMANDA' label='Comenzi' />
+            <CardsColumn variant='CONTACT' label='Agenda lucru' />
+            <CardsColumn variant='OFERTA' label='Oferte' />
+            <CardsColumn variant='NU_ACUM' label='Nu acum' />
+            <CardsColumn variant='COMANDA' label='Comenzi' />
           </GridCards>
         </MainSection>
       </Root>

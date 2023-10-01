@@ -1,6 +1,5 @@
 import { FC, ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { Theme } from '@radix-ui/themes';
 
 import Header from '../Header/Header';
 import { Content } from './styled';
@@ -9,7 +8,6 @@ import { useAppSelector } from '@/hooks/redux';
 import { selectShowSidebar } from '@/store/ui/uiSelector';
 import { selectUserToken } from '@/store/user/userSelects';
 import Auth from '../View/Auth/Auth';
-import bgImage from '@/assets/images/bg.webp';
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const userToken = useAppSelector(selectUserToken);
@@ -18,22 +16,17 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <Toaster position='top-right'></Toaster>
-      <Theme>
-        {userToken ? (
-          <Content
-            showSidebar={showSidebar}
-            style={{ backgroundImage: `url(${bgImage})` }}
-          >
-            <Sidebar />
-            <div>
-              <Header />
-              {children}
-            </div>
-          </Content>
-        ) : (
-          <Auth />
-        )}
-      </Theme>
+      {userToken ? (
+        <Content showSidebar={showSidebar}>
+          <Sidebar />
+          <div>
+            <Header />
+            {children}
+          </div>
+        </Content>
+      ) : (
+        <Auth />
+      )}
     </>
   );
 };

@@ -7,9 +7,10 @@ import { uiActions } from '@/store/ui/uiSlice';
 import GroupItems from './GroupItems/GroupItems';
 import { Button, Root, Top, Body } from './styled';
 import { Theme } from '@radix-ui/themes';
+import bgImage from '@/assets/images/bg.webp';
 
 const getMenuItems = localStorage.getItem('menuItems') || '';
-const menuItems = JSON.parse(getMenuItems);
+const menuItems = getMenuItems ? JSON.parse(getMenuItems) : [];
 
 const Sidebar: FC = () => {
   const userToken = useAppSelector(selectUserToken);
@@ -20,7 +21,11 @@ const Sidebar: FC = () => {
 
   return (
     <Theme panelBackground='translucent' radius='small'>
-      <Root>
+      <Root
+        style={{
+          backgroundImage: `url(${bgImage})`,
+        }}
+      >
         <Top>
           <Button onClick={() => dispatch(uiActions.showSidebar(!showSidebar))}>
             {showSidebar ? <Cross1Icon /> : <HamburgerMenuIcon />}

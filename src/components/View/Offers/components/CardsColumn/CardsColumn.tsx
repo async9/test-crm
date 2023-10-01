@@ -3,8 +3,9 @@ import { FC, useEffect } from 'react';
 import CardItem from '../CardItem/CardItem';
 import { Title } from './styled';
 import { useStatusMutation } from '@/api/statusSlice';
+import Loader from '../Loader/FieldLoader';
 
-const StatusColumn: FC<{
+const CardsColumn: FC<{
   variant: 'OFERTA' | 'CONTACT' | 'NU_ACUM' | 'COMANDA';
   label: string;
 }> = ({ variant, label }) => {
@@ -19,16 +20,17 @@ const StatusColumn: FC<{
   console.log(data);
 
   return (
-    <>
-      <div>
+    <div>
+      {/* <Loader show={!isLoading} /> */}
+      <>
         <Card size='1' style={{ marginBottom: '1rem' }}>
           <Flex align='center' justify='between' gap='2'>
             <Title>{label}</Title>
             <Flex gap='1'>
-              <Badge color='green' variant='solid'>
+              <Badge color='green' variant='soft'>
                 24512423
               </Badge>
-              <Badge color='crimson' variant='solid'>
+              <Badge color='crimson' variant='soft'>
                 6
               </Badge>
             </Flex>
@@ -37,9 +39,9 @@ const StatusColumn: FC<{
         {data.map((item: any, index: number) => (
           <CardItem key={index} data={item} />
         ))}
-      </div>
-    </>
+      </>
+    </div>
   );
 };
 
-export default StatusColumn;
+export default CardsColumn;

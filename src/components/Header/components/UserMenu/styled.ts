@@ -1,6 +1,6 @@
 import { BREAKPOINTS } from '@/constants';
 import { label } from '@/styles/mixins';
-import { bodyS } from '@/styles/typography';
+import { bodyM, bodyS } from '@/styles/typography';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -33,7 +33,7 @@ export const Box = styled.div`
 `;
 
 export const Body = styled.div`
-  overflow: auto;
+  overflow-y: auto;
   height: 250px;
   padding: 2rem 0;
 `;
@@ -52,7 +52,8 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  ${bodyS}
+  ${bodyM}
+  font-weight: 500;
   border-radius: 4px;
   padding: 0.5rem 1.2rem;
   @media (${BREAKPOINTS.S}) {

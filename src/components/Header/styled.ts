@@ -3,12 +3,17 @@ import { BREAKPOINTS } from '../../constants';
 import { bodyS, bodyXS } from '@/styles/typography';
 
 export const Root = styled.header`
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  width: 100%;
   height: 48px;
   padding: 0 2.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-left: 1px solid ${({ theme }) => theme.colors.grey};
+  background-color: #111;
 `;
 
 export const Row = styled.div`

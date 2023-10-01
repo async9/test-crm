@@ -19,6 +19,7 @@ import { uiActions } from '@/store/ui/uiSlice';
 import { selectUsername } from '@/store/user/userSelects';
 import { ExitIcon, PersonIcon } from '@radix-ui/react-icons';
 import { Theme } from '@radix-ui/themes';
+import { useNavigate } from 'react-router-dom';
 
 const cookies = new Cookies();
 
@@ -27,6 +28,7 @@ const UserMenu: FC = () => {
   const dispatch = useAppDispatch();
   const containerRef = useRef(null);
   const containerId = useId();
+  const navigate = useNavigate();
 
   useOnClickOutside(containerRef, (event: MouseEvent | TouchEvent) => {
     if ((event.target as HTMLElement).id !== containerId) {
@@ -37,6 +39,7 @@ const UserMenu: FC = () => {
   const handleLogout = () => {
     cookies.remove('accessToken', { path: '/' });
     dispatch(userActions.removeUserToken());
+    navigate('/login', { replace: true });
   };
 
   return (

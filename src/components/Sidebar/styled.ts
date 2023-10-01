@@ -3,7 +3,17 @@ import { scrollbar } from '@/styles/mixins';
 import styled from 'styled-components';
 
 export const Root = styled.aside`
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: ${({ theme }) => theme.colors.white};
+  border-right: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 
 export const Top = styled.div`
