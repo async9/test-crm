@@ -88,3 +88,21 @@ export const UserLabel = styled.div`
   font-weight: 500;
   color: ${({ theme }) => theme.colors.greyLight};
 `;
+
+export const Button = styled.button`
+  color: ${({ theme }) => theme.colors.white};
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  @media (${BREAKPOINTS.S}) {
+    transition: 0.3s linear;
+    &:hover {
+      svg {
+        path {
+          fill: ${({ theme }) => theme.colors.primaryLight};
+        }
+      }
+    }
+  }
+`;

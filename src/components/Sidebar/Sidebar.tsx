@@ -22,6 +22,7 @@ const Sidebar: FC = () => {
   return (
     <Theme panelBackground='translucent' radius='small'>
       <Root
+        showSidebar={showSidebar}
         style={{
           backgroundImage: `url(${bgImage})`,
         }}
