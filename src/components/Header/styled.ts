@@ -8,12 +8,15 @@ export const Root = styled.header`
   right: 0;
   z-index: 9;
   width: 100%;
-  height: 48px;
+  height: 50px;
   padding: 0 2.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #111;
+  @media (${BREAKPOINTS.S}) {
+    height: 60px;
+  }
 `;
 
 export const Row = styled.div`

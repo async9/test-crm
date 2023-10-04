@@ -49,12 +49,15 @@ export const Root = styled.aside<{ showSidebar: boolean }>`
 `;
 
 export const Top = styled.div`
-  height: 48px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: end;
   padding: 0 1.8rem 0 1.6rem;
   border-right: 1px solid ${({ theme }) => theme.colors.grey};
+  @media (${BREAKPOINTS.S}) {
+    height: 60px;
+  }
 `;
 
 export const Button = styled.button`

@@ -23,7 +23,7 @@ export const TopSection = styled.section`
   flex-direction: column;
   @media (${BREAKPOINTS.S}) {
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 3fr 5fr;
     gap: 2.4rem;
   }
 `;
@@ -35,26 +35,82 @@ export const Title = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const ButtonsBox = styled.div`
-  width: 100%;
+export const ButtonsContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  /* @media (min-width: 540px) {
-    flex-direction: row;
-  } */
+  @media (${BREAKPOINTS.XS}) {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+  }
+  @media (${BREAKPOINTS.S}) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (${BREAKPOINTS.L}) {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+  }
+`;
+
+export const ButtonsBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  &:first-child {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.greyLight};
+  }
+  @media (${BREAKPOINTS.XS}) {
+    &:first-child {
+      padding-bottom: 0;
+      padding-right: 1rem;
+      border-right: 1px solid ${({ theme }) => theme.colors.greyLight};
+    }
+  }
+  @media (${BREAKPOINTS.S}) {
+    &:first-child {
+      padding-right: 0;
+      padding-bottom: 1rem;
+      border-right: none;
+      border-bottom: 1px solid ${({ theme }) => theme.colors.greyLight};
+    }
+  }
+  @media (${BREAKPOINTS.L}) {
+    &:first-child {
+      padding-bottom: 0;
+      padding-right: 1rem;
+      border-bottom: none;
+      border-right: 1px solid ${({ theme }) => theme.colors.greyLight};
+    }
+  }
 `;
 
 export const FiltersTop = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @media (${BREAKPOINTS.M}) {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 1rem;
+  }
+`;
+
+export const InnerFiltersTop = styled.div`
   display: grid;
-  grid-template-columns: 1fr 0.5fr 0.1fr;
+  grid-template-columns: 1fr 0.2fr;
   gap: 1rem;
 `;
 
 export const SelectsContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  /* grid-template-columns: repeat(auto-fill, 200px); */
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
+  @media (${BREAKPOINTS.XS}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   @media (${BREAKPOINTS.M}) {
     grid-template-columns: repeat(3, 1fr);
   }

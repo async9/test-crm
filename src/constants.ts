@@ -1,4 +1,4 @@
-export const screenWidthXS = 375;
+export const screenWidthXS = 425;
 export const screenWidthS = 768;
 export const screenWidthM = 1024;
 export const screenWidthL = 1440;

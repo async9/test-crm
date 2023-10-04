@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import {
-  ButtonsBox,
+  ButtonsContainer,
   Title,
   Root,
   FiltersTop,
@@ -9,6 +9,8 @@ import {
   SelectsContainer,
   MainSection,
   GridCards,
+  InnerFiltersTop,
+  ButtonsBox,
 } from './styled';
 import { Button, Card, Theme } from '@radix-ui/themes';
 import {
@@ -29,7 +31,6 @@ import {
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
 import CardsColumn from './components/CardsColumn/CardsColumn';
-import { DividerX, DividerY } from '@/styles/mixins';
 
 const Offers: FC = () => {
   const { isMobile } = useScreenSize();
@@ -40,27 +41,27 @@ const Offers: FC = () => {
         <TopSection>
           <Card size={isMobile ? '2' : '3'}>
             <Title>Totate lidu-rile</Title>
-            <ButtonsBox>
-              <div>
+            <ButtonsContainer>
+              <ButtonsBox>
                 <Button color='grass'>
-                  <PlusIcon width='16' height='16' /> Adauga lead nou
+                  <PlusIcon width='16' height='16' />
+                  Adauga lead nou
                 </Button>
                 <Button>
-                  <ArrowRightIcon />
                   Vezi stocuri
+                  <ArrowRightIcon />
                 </Button>
                 <Button>
                   <GridIcon />
                   Visibilitate coloane
                 </Button>
-              </div>
-              <DividerY />
-              <div>
+              </ButtonsBox>
+              <ButtonsBox>
                 <Button variant='outline'>Sarcini expirate</Button>
                 <Button variant='outline'>Sarcini astazi</Button>
                 <Button variant='outline'>Sarcini lunare</Button>
-              </div>
-            </ButtonsBox>
+              </ButtonsBox>
+            </ButtonsContainer>
           </Card>
 
           <Card
@@ -71,14 +72,16 @@ const Offers: FC = () => {
             <Column>
               <FiltersTop>
                 <Search />
-                <SelectItems
-                  defaultValue={selectTimeline[0].value}
-                  items={selectTimeline}
-                  color='indigo'
-                />
-                <Button>
-                  <UpdateIcon />
-                </Button>
+                <InnerFiltersTop>
+                  <SelectItems
+                    defaultValue={selectTimeline[0].value}
+                    items={selectTimeline}
+                    color='indigo'
+                  />
+                  <Button>
+                    <UpdateIcon />
+                  </Button>
+                </InnerFiltersTop>
               </FiltersTop>
               <SelectsContainer>
                 <SelectItems
