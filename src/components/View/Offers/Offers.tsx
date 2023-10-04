@@ -3,18 +3,17 @@ import {
   ButtonsContainer,
   Title,
   Root,
-  FiltersTop,
   TopSection,
   Column,
   SelectsContainer,
   MainSection,
   GridCards,
-  FiltersTopBox,
+  Box,
   ButtonsBox,
   FiltersCard,
   CalendarButtons,
-  InnerFiltersTop,
-  SearchWrapper,
+  EvenColumns,
+  FlexRow,
 } from './styled';
 import { Button, Card, Flex, Theme } from '@radix-ui/themes';
 import {
@@ -78,28 +77,23 @@ const Offers: FC = () => {
             >
               <Title>Filtre</Title>
               <Column>
-                <FiltersTop>
-                  <SearchWrapper>
-                    <Search />
-                  </SearchWrapper>
-                  <FiltersTopBox>
+                <Box>
+                  <FlexRow>
                     <CalendarButtons>
                       <CalendarWrapper label='Data start' />
                       <CalendarWrapper label='Data end' />
                     </CalendarButtons>
-                    <InnerFiltersTop>
-                      <SelectItems
-                        defaultValue={selectTimeline[0].value}
-                        items={selectTimeline}
-                        color='indigo'
-                      />
-                      <Button>
-                        <UpdateIcon />
-                      </Button>
-                    </InnerFiltersTop>
-                  </FiltersTopBox>
-                </FiltersTop>
+                    <Button>
+                      <UpdateIcon />
+                    </Button>
+                  </FlexRow>
+                  <Search />
+                </Box>
                 <SelectsContainer>
+                  <SelectItems
+                    defaultValue={selectTimeline[0].value}
+                    items={selectTimeline}
+                  />
                   <SelectItems
                     defaultValue={selectBySearchType[0].value}
                     items={selectBySearchType}

@@ -16,7 +16,7 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  @media (${BREAKPOINTS.M}) {
+  @media (${BREAKPOINTS.L}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
@@ -91,19 +91,22 @@ export const ButtonsBox = styled.div`
   }
 `;
 
-export const FiltersTop = styled.div`
+export const FlexRow = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 1rem;
 `;
 
-export const FiltersTopBox = styled.div`
+export const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   @media (${BREAKPOINTS.M}) {
-    /* display: grid; */
-    /* grid-template-columns: max-content 300px max-content; */
+    display: grid;
+    grid-template-columns: max-content 1fr;
+  }
+  @media (${BREAKPOINTS.L}) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -113,27 +116,28 @@ export const InnerFiltersTop = styled.div`
   gap: 1rem;
 `;
 
-export const SearchWrapper = styled.div`
+export const EvenColumns = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   @media (${BREAKPOINTS.M}) {
-    max-width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
+  /* @media (${BREAKPOINTS.M}) {
+    display: flex;
+    flex-direction: column;
+  } */
 `;
 
 export const SelectsContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1rem;
-  /* @media (${BREAKPOINTS.XS}) {
+  @media (${BREAKPOINTS.XS}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  } */
-  /* @media (${BREAKPOINTS.M}) {
-    grid-template-columns: repeat(3, 1fr);
   }
-  @media (${BREAKPOINTS.L}) {
-    grid-template-columns: repeat(5, 1fr);
-  } */
 `;
 
 export const MainSection = styled.section`

@@ -9,7 +9,7 @@ export const CalendarContainer = styled.div<{ positionRight: boolean }>`
   position: absolute;
   top: 3.6rem;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   & > div {
     width: 290px;
     border-radius: 6px;
