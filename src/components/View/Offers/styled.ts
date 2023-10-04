@@ -16,6 +16,11 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
+  @media (${BREAKPOINTS.M}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 `;
 
 export const TopSection = styled.section`
@@ -90,33 +95,45 @@ export const FiltersTop = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+
+export const FiltersTopBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   @media (${BREAKPOINTS.M}) {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: 1rem;
+    /* display: grid; */
+    /* grid-template-columns: max-content 300px max-content; */
   }
 `;
 
 export const InnerFiltersTop = styled.div`
   display: grid;
-  grid-template-columns: 1fr 0.2fr;
+  grid-template-columns: 1fr 0.1fr;
   gap: 1rem;
+`;
+
+export const SearchWrapper = styled.div`
+  @media (${BREAKPOINTS.M}) {
+    max-width: 50%;
+  }
 `;
 
 export const SelectsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
   gap: 1rem;
-  @media (${BREAKPOINTS.XS}) {
+  /* @media (${BREAKPOINTS.XS}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  @media (${BREAKPOINTS.M}) {
+  } */
+  /* @media (${BREAKPOINTS.M}) {
     grid-template-columns: repeat(3, 1fr);
   }
   @media (${BREAKPOINTS.L}) {
     grid-template-columns: repeat(5, 1fr);
-  }
+  } */
 `;
 
 export const MainSection = styled.section`
@@ -128,5 +145,17 @@ export const MainSection = styled.section`
 export const GridCards = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(300px, 100%));
+  gap: 1rem;
+`;
+
+export const FiltersCard = styled.div`
+  height: 100%;
+  & .rt-CardInner {
+    overflow: visible;
+  }
+`;
+
+export const CalendarButtons = styled.div`
+  display: flex;
   gap: 1rem;
 `;

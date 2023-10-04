@@ -6,10 +6,12 @@ import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { Label, Icon, Row, TriggerText, ListItem, LinkItem } from './styled';
 import { icons } from '../constants';
 import { selectShowSidebar } from '@/store/ui/uiSelector';
-import { useAppSelector } from '@/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { uiActions } from '@/store/ui/uiSlice';
 
 const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
   const showSidebar = useAppSelector(selectShowSidebar);
+  const dispatch = useAppDispatch();
 
   return (
     <div>
@@ -21,7 +23,9 @@ const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
             value={`item-${index}`}
             style={{ marginBottom: '2rem' }}
           >
-            <Accordion.Header>
+            <Accordion.Header
+              onClick={() => dispatch(uiActions.showSidebar(true))}
+            >
               <Accordion.Trigger>
                 <Row>
                   <Icon>

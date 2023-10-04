@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const DividerX = styled.div`
   width: 100%;
   height: 1px;
+  margin: 1rem 0;
   background-color: ${({ theme }) => theme.colors.greyLight};
 `;
 

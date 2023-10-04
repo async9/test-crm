@@ -9,10 +9,14 @@ import {
   SelectsContainer,
   MainSection,
   GridCards,
-  InnerFiltersTop,
+  FiltersTopBox,
   ButtonsBox,
+  FiltersCard,
+  CalendarButtons,
+  InnerFiltersTop,
+  SearchWrapper,
 } from './styled';
-import { Button, Card, Theme } from '@radix-ui/themes';
+import { Button, Card, Flex, Theme } from '@radix-ui/themes';
 import {
   ArrowRightIcon,
   GridIcon,
@@ -31,6 +35,7 @@ import {
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
 import CardsColumn from './components/CardsColumn/CardsColumn';
+import CalendarWrapper from '@/components/CalendarWrapper/CalendarWrapper';
 
 const Offers: FC = () => {
   const { isMobile } = useScreenSize();
@@ -64,49 +69,61 @@ const Offers: FC = () => {
             </ButtonsContainer>
           </Card>
 
-          <Card
-            size={isMobile ? '2' : '3'}
-            style={{ marginTop: isMobile ? '2.4rem' : '' }}
-          >
-            <Title>Filtre</Title>
-            <Column>
-              <FiltersTop>
-                <Search />
-                <InnerFiltersTop>
+          <FiltersCard>
+            <Card
+              size={isMobile ? '2' : '3'}
+              style={{
+                marginTop: isMobile ? '2.4rem' : '',
+              }}
+            >
+              <Title>Filtre</Title>
+              <Column>
+                <FiltersTop>
+                  <SearchWrapper>
+                    <Search />
+                  </SearchWrapper>
+                  <FiltersTopBox>
+                    <CalendarButtons>
+                      <CalendarWrapper label='Data start' />
+                      <CalendarWrapper label='Data end' />
+                    </CalendarButtons>
+                    <InnerFiltersTop>
+                      <SelectItems
+                        defaultValue={selectTimeline[0].value}
+                        items={selectTimeline}
+                        color='indigo'
+                      />
+                      <Button>
+                        <UpdateIcon />
+                      </Button>
+                    </InnerFiltersTop>
+                  </FiltersTopBox>
+                </FiltersTop>
+                <SelectsContainer>
                   <SelectItems
-                    defaultValue={selectTimeline[0].value}
-                    items={selectTimeline}
-                    color='indigo'
+                    defaultValue={selectBySearchType[0].value}
+                    items={selectBySearchType}
                   />
-                  <Button>
-                    <UpdateIcon />
-                  </Button>
-                </InnerFiltersTop>
-              </FiltersTop>
-              <SelectsContainer>
-                <SelectItems
-                  defaultValue={selectBySearchType[0].value}
-                  items={selectBySearchType}
-                />
-                <SelectItems
-                  defaultValue={selectDealer[0].value}
-                  items={selectDealer}
-                />
-                <SelectItems
-                  defaultValue={selectSearchDealer[0].value}
-                  items={selectSearchDealer}
-                />
-                <SelectItems
-                  defaultValue={selectDepartment[0].value}
-                  items={selectDepartment}
-                />
-                <SelectItems
-                  defaultValue={selectAgent[0].value}
-                  items={selectAgent}
-                />
-              </SelectsContainer>
-            </Column>
-          </Card>
+                  <SelectItems
+                    defaultValue={selectDealer[0].value}
+                    items={selectDealer}
+                  />
+                  <SelectItems
+                    defaultValue={selectSearchDealer[0].value}
+                    items={selectSearchDealer}
+                  />
+                  <SelectItems
+                    defaultValue={selectDepartment[0].value}
+                    items={selectDepartment}
+                  />
+                  <SelectItems
+                    defaultValue={selectAgent[0].value}
+                    items={selectAgent}
+                  />
+                </SelectsContainer>
+              </Column>
+            </Card>
+          </FiltersCard>
         </TopSection>
 
         <MainSection>
