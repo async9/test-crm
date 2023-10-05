@@ -2,7 +2,7 @@ import { FC, useId, useRef } from 'react';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { Root } from './styled';
 
-const Menu: FC<{ children: React.ReactNode; onClose: () => void }> = ({
+const MenuWrapper: FC<{ children: React.ReactNode; onClose: () => void }> = ({
   children,
   onClose,
 }) => {
@@ -22,4 +22,4 @@ const Menu: FC<{ children: React.ReactNode; onClose: () => void }> = ({
   );
 };
 
-export default Menu;
+export default MenuWrapper;

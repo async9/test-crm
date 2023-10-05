@@ -10,19 +10,14 @@ export const Root = styled.div`
 
 export const Top = styled.div`
   display: flex;
-  flex-direction: column;
-  ${menuCardTop}
-`;
-
-export const InnerTop = styled.div`
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.6rem;
+  ${menuCardTop}
 `;
 
 export const Body = styled.div`
   min-height: 50px;
+  padding: 1.8rem;
 `;
 
 export const Title = styled.div`

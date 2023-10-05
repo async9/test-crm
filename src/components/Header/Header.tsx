@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import {
   Divider,
-  IconButton,
   Root,
   Row,
   InnerBox,
@@ -10,7 +9,7 @@ import {
   Box,
 } from './styled';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { selectUserToken, selectUsername } from '../../store/user/userSelects';
+import { selectUsername } from '../../store/user/userSelects';
 import { uiActions } from '@/store/ui/uiSlice';
 import {
   BellIcon,
@@ -22,14 +21,16 @@ import {
 } from '@radix-ui/react-icons';
 import { Theme } from '@radix-ui/themes';
 import useScreenSize from '@/hooks/useScreenSize';
-import Menu from './components/Menu/Menu';
+import MenuWrapper from './components/MenuWrapper/MenuWrapper';
 import { selectShowMenu } from '@/store/ui/uiSelector';
 import Notifications from './components/Notifications/Notification';
-import UserMenu from './components/UserMenu/UserMenu';
+import Profile from './components/Profile/Profile';
+import Targets from './components/Targets/Targets';
+import Navigation from './components/Navigation/Navigation';
+import { IconButton } from '@/styles/mixins';
 
 const Header: FC = () => {
   const username = useAppSelector(selectUsername);
-  const userToken = useAppSelector(selectUserToken);
   const showUserMenu = useAppSelector((state) => selectShowMenu(state, 'user'));
   const showSidebarMenu = useAppSelector((state) =>
     selectShowMenu(state, 'sidebar')
@@ -37,10 +38,14 @@ const Header: FC = () => {
   const showNotificationsMenu = useAppSelector((state) =>
     selectShowMenu(state, 'notifications')
   );
+  const showTargetsMenu = useAppSelector((state) =>
+    selectShowMenu(state, 'targets')
+  );
+  const showNavigationMenu = useAppSelector((state) =>
+    selectShowMenu(state, 'navigation')
+  );
   const dispatch = useAppDispatch();
   const { isMobile } = useScreenSize();
-
-  if (!userToken) return null;
 
   return (
     <Theme appearance='dark' panelBackground='solid'>
@@ -48,20 +53,44 @@ const Header: FC = () => {
         <IconButton
           onClick={() =>
             dispatch(
-              uiActions.showMenu({ variant: 'sidebar', show: !showSidebarMenu })
+              uiActions.showMenu({
+                variant: 'sidebar',
+                show: !showSidebarMenu,
+              })
             )
           }
         >
           {showSidebarMenu ? <Cross1Icon /> : <HamburgerMenuIcon />}
         </IconButton>
         <Row>
-          <IconButton>
+          <IconButton
+            showMenu={showNavigationMenu}
+            onClick={() =>
+              dispatch(
+                uiActions.showMenu({
+                  variant: 'navigation',
+                  show: !showNavigationMenu,
+                })
+              )
+            }
+          >
             <GridIcon />
           </IconButton>
-          <IconButton>
+          <IconButton
+            showMenu={showTargetsMenu}
+            onClick={() =>
+              dispatch(
+                uiActions.showMenu({
+                  variant: 'targets',
+                  show: !showTargetsMenu,
+                })
+              )
+            }
+          >
             <TargetIcon />
           </IconButton>
           <IconButton
+            showMenu={showNotificationsMenu}
             onClick={() =>
               dispatch(
                 uiActions.showMenu({
@@ -95,7 +124,7 @@ const Header: FC = () => {
               </InnerBox>
             )}
             {showUserMenu ? (
-              <Menu
+              <MenuWrapper
                 onClose={() =>
                   dispatch(
                     uiActions.showMenu({
@@ -105,11 +134,11 @@ const Header: FC = () => {
                   )
                 }
               >
-                <UserMenu />
-              </Menu>
+                <Profile />
+              </MenuWrapper>
             ) : null}
             {showNotificationsMenu ? (
-              <Menu
+              <MenuWrapper
                 onClose={() =>
                   dispatch(
                     uiActions.showMenu({
@@ -120,7 +149,35 @@ const Header: FC = () => {
                 }
               >
                 <Notifications />
-              </Menu>
+              </MenuWrapper>
+            ) : null}
+            {showTargetsMenu ? (
+              <MenuWrapper
+                onClose={() =>
+                  dispatch(
+                    uiActions.showMenu({
+                      variant: 'targets',
+                      show: !showTargetsMenu,
+                    })
+                  )
+                }
+              >
+                <Targets />
+              </MenuWrapper>
+            ) : null}
+            {showNavigationMenu ? (
+              <MenuWrapper
+                onClose={() =>
+                  dispatch(
+                    uiActions.showMenu({
+                      variant: 'navigation',
+                      show: !showNavigationMenu,
+                    })
+                  )
+                }
+              >
+                <Navigation />
+              </MenuWrapper>
             ) : null}
           </Box>
         </Row>

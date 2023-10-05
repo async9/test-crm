@@ -1,6 +1,6 @@
 import { BREAKPOINTS } from '@/constants';
-import { label } from '@/styles/mixins';
-import { bodyM, bodyS } from '@/styles/typography';
+import { menuCardTop, label } from '@/styles/mixins';
+import { bodyM, bodyS, bodyXL } from '@/styles/typography';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -10,12 +10,19 @@ export const Root = styled.div`
 `;
 
 export const Top = styled.div`
-  height: 65px;
+  ${menuCardTop}
+`;
+
+export const InnerTop = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.8rem;
-  background-color: ${({ theme }) => theme.colors.greyDark};
+  margin-bottom: 1.6rem;
+`;
+
+export const Title = styled.div`
+  ${bodyXL}
+  font-weight: 500;
 `;
 
 export const Row = styled.div`
@@ -28,7 +35,7 @@ export const Box = styled.div`
 `;
 
 export const Body = styled.div`
-  padding: 2rem 0;
+  padding-top: 2rem;
 `;
 
 export const Label = styled.div`
@@ -38,6 +45,9 @@ export const Label = styled.div`
 
 export const Group = styled.div`
   margin-bottom: 2rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const List = styled.ul`

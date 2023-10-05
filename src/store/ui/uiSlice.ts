@@ -7,7 +7,7 @@ type UiStateType = {
     sidebar: boolean;
     targets: boolean;
     notifications: boolean;
-    quickNavigation: boolean;
+    navigation: boolean;
   };
 };
 
@@ -17,7 +17,7 @@ const initialState: UiStateType = {
     sidebar: false,
     targets: false,
     notifications: false,
-    quickNavigation: false,
+    navigation: false,
   },
 };
 

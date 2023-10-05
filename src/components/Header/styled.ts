@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { BREAKPOINTS } from '../../constants';
 import { bodyS, bodyXS } from '@/styles/typography';
+import headerBgImage from '@/assets/images/bg-header.jpg';
 
 export const Root = styled.header`
   position: fixed;
@@ -13,7 +14,18 @@ export const Root = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #111;
+  background: url(${headerBgImage}) center / cover no-repeat;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.6;
+    background-color: #111;
+  }
   @media (${BREAKPOINTS.S}) {
     height: 60px;
   }
@@ -29,45 +41,6 @@ export const Divider = styled.div`
   width: 1px;
   height: 28px;
   background-color: ${({ theme }) => theme.colors.greyLight};
-`;
-
-const buttonStyles = css`
-  line-height: 0;
-  @media (${BREAKPOINTS.S}) {
-    svg {
-      path {
-        transition: 0.3s linear;
-      }
-    }
-    &:hover {
-      svg {
-        path {
-          fill: ${({ theme }) => theme.colors.primaryLight};
-        }
-      }
-    }
-  }
-`;
-
-export const IconButton = styled.button<{ showMenu?: boolean }>`
-  ${buttonStyles}
-  svg {
-    width: 24px;
-    height: 24px;
-    path {
-      fill: ${({ theme }) => theme.colors.white};
-    }
-  }
-  ${({ showMenu }) =>
-    showMenu
-      ? css`
-          svg {
-            path {
-              fill: ${({ theme }) => theme.colors.primaryLight};
-            }
-          }
-        `
-      : null}
 `;
 
 export const Box = styled.div`

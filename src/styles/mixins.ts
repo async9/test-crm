@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import menuCardToBgImage from '@/assets/images/bg-menu.jpg';
+import { BREAKPOINTS } from '@/constants';
 
 export const DividerX = styled.div`
   width: 100%;
@@ -40,4 +42,49 @@ export const scrollbar = css`
     border-radius: 3px;
     background-color: ${({ theme }) => theme.colors.grey};
   }
+`;
+
+export const menuCardTop = css`
+  padding: 1.8rem;
+  background: url(${menuCardToBgImage}) center / cover no-repeat;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+`;
+
+const buttonStyles = css`
+  line-height: 0;
+  @media (${BREAKPOINTS.S}) {
+    svg {
+      path {
+        transition: 0.3s linear;
+      }
+    }
+    &:hover {
+      svg {
+        path {
+          fill: ${({ theme }) => theme.colors.primaryLight};
+        }
+      }
+    }
+  }
+`;
+
+export const IconButton = styled.button<{ showMenu?: boolean }>`
+  ${buttonStyles}
+  svg {
+    width: 24px;
+    height: 24px;
+    path {
+      fill: ${({ theme }) => theme.colors.white};
+    }
+  }
+  ${({ showMenu }) =>
+    showMenu
+      ? css`
+          svg {
+            path {
+              fill: ${({ theme }) => theme.colors.primaryLight};
+            }
+          }
+        `
+      : null}
 `;

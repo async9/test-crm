@@ -3,26 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { userActions } from '@/store/user/userSlice';
 import Cookies from 'universal-cookie';
-import { Theme } from '@radix-ui/themes';
+import { Flex, Theme } from '@radix-ui/themes';
 import { selectUsername } from '@/store/user/userSelects';
-import { ExitIcon, PersonIcon } from '@radix-ui/react-icons';
+import { Cross1Icon, ExitIcon, PersonIcon } from '@radix-ui/react-icons';
 
-import { IconButton, UserLabel, UserName } from '../../styled';
+import { UserLabel, UserName } from '../../styled';
 import {
   Body,
   Box,
   Group,
+  InnerTop,
   Label,
   List,
   ListItem,
   Root,
   Row,
+  Title,
   Top,
 } from './styled';
+import { IconButton } from '@/styles/mixins';
+import { uiActions } from '@/store/ui/uiSlice';
 
 const cookies = new Cookies();
 
-const UserMenu: FC = () => {
+const Profile: FC = () => {
   const username = useAppSelector(selectUsername);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -37,16 +41,33 @@ const UserMenu: FC = () => {
     <Theme panelBackground='translucent' radius='small'>
       <Root>
         <Top>
-          <Row>
-            <PersonIcon width={24} height={24} />
-            <Box>
-              <UserName>{username}</UserName>
-              <UserLabel>Utilizator global</UserLabel>
-            </Box>
-          </Row>
-          <IconButton onClick={handleLogout}>
-            <ExitIcon />
-          </IconButton>
+          <InnerTop>
+            <Title>Profile</Title>
+            <IconButton
+              onClick={() =>
+                dispatch(
+                  uiActions.showMenu({
+                    variant: 'user',
+                    show: false,
+                  })
+                )
+              }
+            >
+              <Cross1Icon />
+            </IconButton>
+          </InnerTop>
+          <Flex align='center' justify='between'>
+            <Row>
+              <PersonIcon width={24} height={24} />
+              <Box>
+                <UserName>{username}</UserName>
+                <UserLabel>Utilizator global</UserLabel>
+              </Box>
+            </Row>
+            <IconButton onClick={handleLogout}>
+              <ExitIcon />
+            </IconButton>
+          </Flex>
         </Top>
         <Body>
           <Group>
@@ -68,4 +89,4 @@ const UserMenu: FC = () => {
   );
 };
 
-export default UserMenu;
+export default Profile;

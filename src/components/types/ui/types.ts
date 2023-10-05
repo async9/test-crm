@@ -3,4 +3,4 @@ export type UiMenuType =
   | 'sidebar'
   | 'targets'
   | 'notifications'
-  | 'quickNavigation';
+  | 'navigation';

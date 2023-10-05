@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { scrollbar } from '@/styles/mixins';
 import { BREAKPOINTS } from '@/constants';
+import sidebarBgImage from '@/assets/images/bg-sidebar.jpg';
 
 const growWidth = keyframes`
   from {
@@ -64,38 +65,41 @@ export const Root = styled.aside<{ showSidebar: boolean }>`
   width: 0;
   z-index: 10;
   overflow: hidden;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: url(${sidebarBgImage}) center / cover no-repeat;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.6;
+    background-color: #111;
+  }
   color: ${({ theme }) => theme.colors.white};
   ${({ showSidebar }) =>
     showSidebar
       ? css`
           animation: ${growWidth} 0.3s ease-in forwards;
+          @media (${BREAKPOINTS.S}) {
+            animation: ${growWidthS} 0.3s ease-in forwards;
+          }
+          @media (${BREAKPOINTS.M}) {
+            animation: ${growWidthM} 0.3s ease-in forwards;
+          }
         `
       : css`
           animation: ${shrinkWidth} 0.3s ease-in forwards;
+          @media (${BREAKPOINTS.S}) {
+            animation: ${shrinkWidthS} 0.3s ease-in forwards;
+          }
+          @media (${BREAKPOINTS.M}) {
+            animation: ${shrinkWidthM} 0.3s ease-in forwards;
+          }
         `}
   @media (${BREAKPOINTS.S}) {
     min-width: 64px;
-    ${({ showSidebar }) =>
-      showSidebar
-        ? css`
-            animation: ${growWidthS} 0.3s ease-in forwards;
-          `
-        : css`
-            animation: ${shrinkWidthS} 0.3s ease-in forwards;
-          `};
-  }
-  @media (max-width: 1439px) {
-    ${({ showSidebar }) =>
-      showSidebar
-        ? css`
-            animation: ${growWidthM} 0.3s ease-in forwards;
-          `
-        : css`
-            animation: ${shrinkWidthM} 0.3s ease-in forwards;
-          `}
   }
   @media (${BREAKPOINTS.L}) {
     position: sticky;
