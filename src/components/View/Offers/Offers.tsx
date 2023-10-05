@@ -105,14 +105,17 @@ const Offers: FC = () => {
                   <SelectItems
                     defaultValue={selectSearchDealer[0].value}
                     items={selectSearchDealer}
+                    disabled={true}
                   />
                   <SelectItems
                     defaultValue={selectDepartment[0].value}
                     items={selectDepartment}
+                    disabled={true}
                   />
                   <SelectItems
                     defaultValue={selectAgent[0].value}
                     items={selectAgent}
+                    disabled={true}
                   />
                 </SelectsContainer>
               </Column>

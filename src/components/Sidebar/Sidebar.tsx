@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectShowSidebar } from '@/store/ui/uiSelector';
+import { selectShowMenu } from '@/store/ui/uiSelector';
 import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
 import { selectUserToken } from '@/store/user/userSelects';
 import { uiActions } from '@/store/ui/uiSlice';
@@ -14,7 +14,9 @@ const menuItems = getMenuItems ? JSON.parse(getMenuItems) : [];
 
 const Sidebar: FC = () => {
   const userToken = useAppSelector(selectUserToken);
-  const showSidebar = useAppSelector(selectShowSidebar);
+  const showSidebarMenu = useAppSelector((state) =>
+    selectShowMenu(state, 'sidebar')
+  );
   const dispatch = useAppDispatch();
 
   if (!userToken) return null;
@@ -22,14 +24,23 @@ const Sidebar: FC = () => {
   return (
     <Theme panelBackground='translucent' radius='small'>
       <Root
-        showSidebar={showSidebar}
+        showSidebar={showSidebarMenu}
         style={{
           backgroundImage: `url(${bgImage})`,
         }}
       >
         <Top>
-          <Button onClick={() => dispatch(uiActions.showSidebar(!showSidebar))}>
-            {showSidebar ? <Cross1Icon /> : <HamburgerMenuIcon />}
+          <Button
+            onClick={() =>
+              dispatch(
+                uiActions.showMenu({
+                  variant: 'sidebar',
+                  show: !showSidebarMenu,
+                })
+              )
+            }
+          >
+            {showSidebarMenu ? <Cross1Icon /> : <HamburgerMenuIcon />}
           </Button>
         </Top>
         <Body>

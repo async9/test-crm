@@ -1,24 +1,36 @@
+import { UiMenuType } from '@/components/types/ui/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type UiStateType = {
-  showSidebar: boolean;
-  showUserMenu: boolean;
+  menus: {
+    user: boolean;
+    sidebar: boolean;
+    targets: boolean;
+    notifications: boolean;
+    quickNavigation: boolean;
+  };
 };
 
 const initialState: UiStateType = {
-  showSidebar: false,
-  showUserMenu: false,
+  menus: {
+    user: false,
+    sidebar: false,
+    targets: false,
+    notifications: false,
+    quickNavigation: false,
+  },
 };
 
 export const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    showSidebar: (state, action: PayloadAction<boolean>) => {
-      state.showSidebar = action.payload;
-    },
-    showUserMenu: (state, action: PayloadAction<boolean>) => {
-      state.showUserMenu = action.payload;
+    showMenu: (
+      state,
+      action: PayloadAction<{ variant: UiMenuType; show: boolean }>
+    ) => {
+      const { variant, show } = action.payload;
+      state.menus[variant] = show;
     },
   },
 });

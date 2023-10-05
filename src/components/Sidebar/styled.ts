@@ -7,13 +7,49 @@ const growWidth = keyframes`
     width: 0%;
   }
   to {
-    width: 80%;
+    width: 70%;
+  }
+`;
+
+const growWidthS = keyframes`
+  from {
+    width: 0%;
+  }
+  to {
+    width: 40%;
+  }
+`;
+
+const growWidthM = keyframes`
+  from {
+    width: 0%;
+  }
+  to {
+    width: 30%;
   }
 `;
 
 const shrinkWidth = keyframes`
   from {
-    width: 80%;
+    width: 70%;
+  }
+  to {
+    width: 0%;
+  }
+`;
+
+const shrinkWidthS = keyframes`
+  from {
+    width: 40%;
+  }
+  to {
+    width: 0%;
+  }
+`;
+
+const shrinkWidthM = keyframes`
+  from {
+    width: 30%;
   }
   to {
     width: 0%;
@@ -32,19 +68,39 @@ export const Root = styled.aside<{ showSidebar: boolean }>`
   background-size: cover;
   background-repeat: no-repeat;
   color: ${({ theme }) => theme.colors.white};
-  @media (max-width: 767px) {
+  ${({ showSidebar }) =>
+    showSidebar
+      ? css`
+          animation: ${growWidth} 0.3s ease-in forwards;
+        `
+      : css`
+          animation: ${shrinkWidth} 0.3s ease-in forwards;
+        `}
+  @media (${BREAKPOINTS.S}) {
+    min-width: 64px;
     ${({ showSidebar }) =>
       showSidebar
         ? css`
-            animation: ${growWidth} 0.3s ease-in forwards;
+            animation: ${growWidthS} 0.3s ease-in forwards;
           `
         : css`
-            animation: ${shrinkWidth} 0.3s ease-in forwards;
+            animation: ${shrinkWidthS} 0.3s ease-in forwards;
+          `};
+  }
+  @media (max-width: 1439px) {
+    ${({ showSidebar }) =>
+      showSidebar
+        ? css`
+            animation: ${growWidthM} 0.3s ease-in forwards;
+          `
+        : css`
+            animation: ${shrinkWidthM} 0.3s ease-in forwards;
           `}
   }
-  @media (${BREAKPOINTS.S}) {
+  @media (${BREAKPOINTS.L}) {
     position: sticky;
     width: initial;
+    animation: none;
   }
 `;
 

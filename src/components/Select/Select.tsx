@@ -5,13 +5,18 @@ const SelectItems: FC<{
   defaultValue: string;
   items: { label: string; value: string }[];
   color?: any;
-}> = ({ defaultValue, items, color }) => {
+  disabled?: boolean;
+}> = ({ defaultValue, items, color, disabled }) => {
   return (
     <>
       <Select.Root defaultValue={defaultValue}>
         {color ? (
           <>
-            <Select.Trigger color={color} variant='soft' />
+            {disabled ? (
+              <Select.Trigger disabled variant='soft' />
+            ) : (
+              <Select.Trigger variant='soft' />
+            )}
             <Select.Content color={color} position='popper'>
               {items.map((item, index) => (
                 <Select.Item key={index} value={item.value}>
@@ -22,7 +27,7 @@ const SelectItems: FC<{
           </>
         ) : (
           <>
-            <Select.Trigger />
+            {disabled ? <Select.Trigger disabled /> : <Select.Trigger />}
             <Select.Content position='popper'>
               {items.map((item, index) => (
                 <Select.Item key={index} value={item.value}>

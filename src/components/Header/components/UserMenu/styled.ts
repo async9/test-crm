@@ -4,13 +4,8 @@ import { bodyM, bodyS } from '@/styles/typography';
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  position: absolute;
-  top: 50px;
-  z-index: 9;
-  right: 0;
-  width: 290px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #111;
 `;
 
@@ -33,8 +28,6 @@ export const Box = styled.div`
 `;
 
 export const Body = styled.div`
-  overflow-y: auto;
-  height: 250px;
   padding: 2rem 0;
 `;
 

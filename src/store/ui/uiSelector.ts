@@ -1,4 +1,5 @@
+import { UiMenuType } from '@/components/types/ui/types';
 import { RootState } from '../store';
 
-export const selectShowSidebar = (state: RootState) => state.ui.showSidebar;
-export const selectShowUserMenu = (state: RootState) => state.ui.showUserMenu;
+export const selectShowMenu = (state: RootState, variant: UiMenuType) =>
+  state.ui.menus[variant];

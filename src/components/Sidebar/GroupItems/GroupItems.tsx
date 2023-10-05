@@ -2,20 +2,21 @@ import { FC } from 'react';
 import SVG from 'react-inlinesvg';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
-
 import { Label, Icon, Row, TriggerText, ListItem, LinkItem } from './styled';
 import { icons } from '../constants';
-import { selectShowSidebar } from '@/store/ui/uiSelector';
+import { selectShowMenu } from '@/store/ui/uiSelector';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { uiActions } from '@/store/ui/uiSlice';
 
 const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
-  const showSidebar = useAppSelector(selectShowSidebar);
   const dispatch = useAppDispatch();
+  const showSidebarMenu = useAppSelector((state) =>
+    selectShowMenu(state, 'sidebar')
+  );
 
   return (
     <div>
-      {showSidebar ? <Label>{label}</Label> : null}
+      {showSidebarMenu ? <Label>{label}</Label> : null}
       <Accordion.Root type='single' collapsible style={{ padding: '2rem' }}>
         {items.map((item, index) => (
           <Accordion.Item
@@ -24,7 +25,14 @@ const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
             style={{ marginBottom: '2rem' }}
           >
             <Accordion.Header
-              onClick={() => dispatch(uiActions.showSidebar(true))}
+              onClick={() =>
+                dispatch(
+                  uiActions.showMenu({
+                    variant: 'sidebar',
+                    show: !showSidebarMenu,
+                  })
+                )
+              }
             >
               <Accordion.Trigger>
                 <Row>
@@ -36,14 +44,14 @@ const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
                       title='Icon'
                     />
                   </Icon>
-                  <TriggerText showSidebar={showSidebar}>
+                  <TriggerText showSidebar={showSidebarMenu}>
                     {item.label}
                   </TriggerText>
-                  {showSidebar ? <ChevronDownIcon aria-hidden /> : null}
+                  {showSidebarMenu ? <ChevronDownIcon aria-hidden /> : null}
                 </Row>
               </Accordion.Trigger>
             </Accordion.Header>
-            {showSidebar ? (
+            {showSidebarMenu ? (
               <Accordion.Content
                 style={{
                   margin: '0 0 1.2rem 1.2rem',

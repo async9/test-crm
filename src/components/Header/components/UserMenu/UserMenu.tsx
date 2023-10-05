@@ -1,7 +1,12 @@
+import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { userActions } from '@/store/user/userSlice';
-import { FC, useId, useRef } from 'react';
 import Cookies from 'universal-cookie';
+import { Theme } from '@radix-ui/themes';
+import { selectUsername } from '@/store/user/userSelects';
+import { ExitIcon, PersonIcon } from '@radix-ui/react-icons';
+
 import { IconButton, UserLabel, UserName } from '../../styled';
 import {
   Body,
@@ -14,27 +19,13 @@ import {
   Row,
   Top,
 } from './styled';
-import { useOnClickOutside } from '@/hooks/useOnClickOutside';
-import { uiActions } from '@/store/ui/uiSlice';
-import { selectUsername } from '@/store/user/userSelects';
-import { ExitIcon, PersonIcon } from '@radix-ui/react-icons';
-import { Theme } from '@radix-ui/themes';
-import { useNavigate } from 'react-router-dom';
 
 const cookies = new Cookies();
 
 const UserMenu: FC = () => {
   const username = useAppSelector(selectUsername);
   const dispatch = useAppDispatch();
-  const containerRef = useRef(null);
-  const containerId = useId();
   const navigate = useNavigate();
-
-  useOnClickOutside(containerRef, (event: MouseEvent | TouchEvent) => {
-    if ((event.target as HTMLElement).id !== containerId) {
-      dispatch(uiActions.showUserMenu(false));
-    }
-  });
 
   const handleLogout = () => {
     cookies.remove('accessToken', { path: '/' });
@@ -44,7 +35,7 @@ const UserMenu: FC = () => {
 
   return (
     <Theme panelBackground='translucent' radius='small'>
-      <Root id={containerId} ref={containerRef}>
+      <Root>
         <Top>
           <Row>
             <PersonIcon width={24} height={24} />

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import {
   Divider,
   IconButton,
@@ -9,13 +8,10 @@ import {
   UserLabel,
   UserName,
   Box,
-  Button,
 } from './styled';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { selectUserToken, selectUsername } from '../../store/user/userSelects';
-import UserMenu from './components/UserMenu/UserMenu';
 import { uiActions } from '@/store/ui/uiSlice';
-import { selectShowSidebar, selectShowUserMenu } from '@/store/ui/uiSelector';
 import {
   BellIcon,
   Cross1Icon,
@@ -26,12 +22,21 @@ import {
 } from '@radix-ui/react-icons';
 import { Theme } from '@radix-ui/themes';
 import useScreenSize from '@/hooks/useScreenSize';
+import Menu from './components/Menu/Menu';
+import { selectShowMenu } from '@/store/ui/uiSelector';
+import Notifications from './components/Notifications/Notification';
+import UserMenu from './components/UserMenu/UserMenu';
 
 const Header: FC = () => {
   const username = useAppSelector(selectUsername);
   const userToken = useAppSelector(selectUserToken);
-  const showUserMenu = useAppSelector(selectShowUserMenu);
-  const showSidebar = useAppSelector(selectShowSidebar);
+  const showUserMenu = useAppSelector((state) => selectShowMenu(state, 'user'));
+  const showSidebarMenu = useAppSelector((state) =>
+    selectShowMenu(state, 'sidebar')
+  );
+  const showNotificationsMenu = useAppSelector((state) =>
+    selectShowMenu(state, 'notifications')
+  );
   const dispatch = useAppDispatch();
   const { isMobile } = useScreenSize();
 
@@ -40,11 +45,15 @@ const Header: FC = () => {
   return (
     <Theme appearance='dark' panelBackground='solid'>
       <Root>
-        <div>
-          <Button onClick={() => dispatch(uiActions.showSidebar(!showSidebar))}>
-            {showSidebar ? <Cross1Icon /> : <HamburgerMenuIcon />}
-          </Button>
-        </div>
+        <IconButton
+          onClick={() =>
+            dispatch(
+              uiActions.showMenu({ variant: 'sidebar', show: !showSidebarMenu })
+            )
+          }
+        >
+          {showSidebarMenu ? <Cross1Icon /> : <HamburgerMenuIcon />}
+        </IconButton>
         <Row>
           <IconButton>
             <GridIcon />
@@ -52,14 +61,30 @@ const Header: FC = () => {
           <IconButton>
             <TargetIcon />
           </IconButton>
-          <IconButton>
+          <IconButton
+            onClick={() =>
+              dispatch(
+                uiActions.showMenu({
+                  variant: 'notifications',
+                  show: !showNotificationsMenu,
+                })
+              )
+            }
+          >
             <BellIcon />
           </IconButton>
           <Divider />
           <Box>
             <IconButton
               showMenu={showUserMenu}
-              onClick={() => dispatch(uiActions.showUserMenu(true))}
+              onClick={() =>
+                dispatch(
+                  uiActions.showMenu({
+                    variant: 'user',
+                    show: !showUserMenu,
+                  })
+                )
+              }
             >
               <PersonIcon />
             </IconButton>
@@ -69,7 +94,34 @@ const Header: FC = () => {
                 <UserLabel>Utilizator global</UserLabel>
               </InnerBox>
             )}
-            {showUserMenu ? <UserMenu /> : null}
+            {showUserMenu ? (
+              <Menu
+                onClose={() =>
+                  dispatch(
+                    uiActions.showMenu({
+                      variant: 'user',
+                      show: !showUserMenu,
+                    })
+                  )
+                }
+              >
+                <UserMenu />
+              </Menu>
+            ) : null}
+            {showNotificationsMenu ? (
+              <Menu
+                onClose={() =>
+                  dispatch(
+                    uiActions.showMenu({
+                      variant: 'notifications',
+                      show: !showNotificationsMenu,
+                    })
+                  )
+                }
+              >
+                <Notifications />
+              </Menu>
+            ) : null}
           </Box>
         </Row>
       </Root>

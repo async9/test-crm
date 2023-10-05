@@ -4,10 +4,11 @@ import styled from 'styled-components';
 
 export const Root = styled.div`
   min-height: 100vh;
-  margin-top: 4.8rem;
+  margin-top: 5rem;
   padding: 1.6rem;
   overflow: hidden;
   @media (${BREAKPOINTS.S}) {
+    margin-top: 6rem;
     padding: 2.4rem;
   }
 `;
