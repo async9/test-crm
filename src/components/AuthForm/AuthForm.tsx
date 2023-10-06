@@ -44,10 +44,13 @@ const AuthForm: FC = () => {
         dispatch(uiActions.setSidebarData(res.menuItems));
         localStorage.setItem('menuItems', JSON.stringify(res.menuItems));
         navigate('/offers', { replace: true });
-        toast.success('Logged in succesfully', { duration: 3000 });
 
         cookies.set('accessToken', res.token, { path: '/' });
         cookies.set('username', res.username, { path: '/' });
+
+        setTimeout(() => {
+          toast.success('Logged in succesfully', { duration: 4000 });
+        }, 600);
       } catch (error) {
         if (error instanceof AxiosError && error.response) {
           toast.error(`Login error: ${error.response}`);
