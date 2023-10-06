@@ -12,9 +12,9 @@ import {
   Text,
   TextField,
 } from '@radix-ui/themes';
-import { useAppDispatch } from '../../hooks/redux';
-import { useLoginMutation } from '../../api/auth';
-import { userActions } from '../../store/user/userSlice';
+import { useAppDispatch } from '../../../hooks/redux';
+import { useLoginMutation } from '../../../api/auth';
+import { userActions } from '../../../store/user/userSlice';
 import { uiActions } from '@/store/ui/uiSlice';
 
 const cookies = new Cookies();

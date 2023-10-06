@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { BREAKPOINTS } from '../../constants';
 import { bodyS, bodyXS } from '@/styles/typography';
 import headerBgImage from '@/assets/images/bg-header.jpg';

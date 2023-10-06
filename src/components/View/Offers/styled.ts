@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { BREAKPOINTS } from '@/constants';
 import { bodyL } from '@/styles/typography';
-import styled from 'styled-components';
 
 export const Root = styled.div`
   min-height: 100vh;
@@ -125,10 +125,6 @@ export const EvenColumns = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  /* @media (${BREAKPOINTS.M}) {
-    display: flex;
-    flex-direction: column;
-  } */
 `;
 
 export const SelectsContainer = styled.div`

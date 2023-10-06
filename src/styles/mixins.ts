@@ -50,8 +50,41 @@ export const menuCardTop = css`
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 
-const buttonStyles = css`
+export const IconButton = styled.button<{
+  showMenu?: boolean;
+  variant?: 'dark' | 'light';
+}>`
+  svg {
+    width: 24px;
+    height: 24px;
+  }
   line-height: 0;
+  ${({ variant }) =>
+    variant === 'light'
+      ? css`
+          svg {
+            path {
+              fill: #18181a;
+            }
+          }
+        `
+      : css`
+          svg {
+            path {
+              fill: ${({ theme }) => theme.colors.white};
+            }
+          }
+        `}
+  ${({ showMenu }) =>
+    showMenu
+      ? css`
+          svg {
+            path {
+              fill: ${({ theme }) => theme.colors.primaryLight};
+            }
+          }
+        `
+      : null}
   @media (${BREAKPOINTS.S}) {
     svg {
       path {
@@ -66,25 +99,4 @@ const buttonStyles = css`
       }
     }
   }
-`;
-
-export const IconButton = styled.button<{ showMenu?: boolean }>`
-  ${buttonStyles}
-  svg {
-    width: 24px;
-    height: 24px;
-    path {
-      fill: ${({ theme }) => theme.colors.white};
-    }
-  }
-  ${({ showMenu }) =>
-    showMenu
-      ? css`
-          svg {
-            path {
-              fill: ${({ theme }) => theme.colors.primaryLight};
-            }
-          }
-        `
-      : null}
 `;

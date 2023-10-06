@@ -12,10 +12,9 @@ import {
   ButtonsBox,
   FiltersCard,
   CalendarButtons,
-  EvenColumns,
   FlexRow,
 } from './styled';
-import { Button, Card, Flex, Theme } from '@radix-ui/themes';
+import { Button, Card, Theme } from '@radix-ui/themes';
 import {
   ArrowRightIcon,
   GridIcon,
@@ -35,8 +34,12 @@ import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
 import CardsColumn from './components/CardsColumn/CardsColumn';
 import CalendarWrapper from '@/components/CalendarWrapper/CalendarWrapper';
+import { uiActions } from '@/store/ui/uiSlice';
+import { useAppDispatch } from '@/hooks/redux';
+import Modals from './components/Modals/Modals';
 
 const Offers: FC = () => {
+  const dispatch = useAppDispatch();
   const { isMobile } = useScreenSize();
 
   return (
@@ -47,7 +50,17 @@ const Offers: FC = () => {
             <Title>Totate lidu-rile</Title>
             <ButtonsContainer>
               <ButtonsBox>
-                <Button color='grass'>
+                <Button
+                  color='grass'
+                  onClick={() =>
+                    dispatch(
+                      uiActions.showModal({
+                        variant: 'newEntryForm',
+                        show: true,
+                      })
+                    )
+                  }
+                >
                   <PlusIcon width='16' height='16' />
                   Adauga lead nou
                 </Button>
@@ -105,17 +118,14 @@ const Offers: FC = () => {
                   <SelectItems
                     defaultValue={selectSearchDealer[0].value}
                     items={selectSearchDealer}
-                    disabled={true}
                   />
                   <SelectItems
                     defaultValue={selectDepartment[0].value}
                     items={selectDepartment}
-                    disabled={true}
                   />
                   <SelectItems
                     defaultValue={selectAgent[0].value}
                     items={selectAgent}
-                    disabled={true}
                   />
                 </SelectsContainer>
               </Column>
@@ -131,6 +141,7 @@ const Offers: FC = () => {
             <CardsColumn variant='COMANDA' label='Comenzi' />
           </GridCards>
         </MainSection>
+        <Modals />
       </Root>
     </Theme>
   );

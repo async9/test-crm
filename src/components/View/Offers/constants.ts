@@ -26,3 +26,14 @@ export const selectDepartment = [
 ];
 
 export const selectAgent = [{ label: 'Cauta agent', value: 'agent' }];
+
+export const selectNewEntryDetails = [
+  { label: 'Acoperis nou', value: 'acoperisNou' },
+  { label: 'Schimbare acoperis', value: 'schimbareAcoperis' },
+  { label: 'Gard', value: 'gard' },
+  { label: 'Terasa', value: 'terasa' },
+  { label: 'Velux', value: 'velux' },
+  { label: 'Industriale', value: 'industriale' },
+  { label: 'Elemente speciale', value: 'elementeSpeciale' },
+  { label: 'Altele', value: 'altele' },
+];

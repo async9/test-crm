@@ -4,7 +4,7 @@ import { useStatusMutation } from '@/api/statusSlice';
 import { StatusDataType, StatusDataVariantType } from '../../types';
 import { Root, Title } from './styled';
 import CardItem from '../CardItem/CardItem';
-import Loader from '../Loader/Loader';
+import Loader from '@/components/Loader/Loader';
 
 const CardsColumn: FC<{
   variant: StatusDataVariantType;

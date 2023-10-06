@@ -1,10 +1,8 @@
 import { FC } from 'react';
 import { Toaster } from 'react-hot-toast';
-
 import { useAppSelector } from '@/hooks/redux';
 import { selectShowMenu } from '@/store/ui/uiSelector';
 import { selectUserToken } from '@/store/user/userSelects';
-
 import Header from '../Header/Header';
 import { Container } from './styled';
 import Sidebar from '../Sidebar/Sidebar';

@@ -5,40 +5,39 @@ const SelectItems: FC<{
   defaultValue: string;
   items: { label: string; value: string }[];
   color?: any;
-  disabled?: boolean;
-}> = ({ defaultValue, items, color, disabled }) => {
+}> = ({ defaultValue, items, color }) => {
+  const isDisabled = items.length <= 1;
+
   return (
-    <>
-      <Select.Root defaultValue={defaultValue}>
-        {color ? (
-          <>
-            {disabled ? (
-              <Select.Trigger disabled variant='soft' />
-            ) : (
-              <Select.Trigger variant='soft' />
-            )}
-            <Select.Content color={color} position='popper'>
-              {items.map((item, index) => (
-                <Select.Item key={index} value={item.value}>
-                  {item.label}
-                </Select.Item>
-              ))}
-            </Select.Content>
-          </>
-        ) : (
-          <>
-            {disabled ? <Select.Trigger disabled /> : <Select.Trigger />}
-            <Select.Content position='popper'>
-              {items.map((item, index) => (
-                <Select.Item key={index} value={item.value}>
-                  {item.label}
-                </Select.Item>
-              ))}
-            </Select.Content>
-          </>
-        )}
-      </Select.Root>
-    </>
+    <Select.Root defaultValue={defaultValue}>
+      {color ? (
+        <>
+          {isDisabled ? (
+            <Select.Trigger disabled variant='soft' />
+          ) : (
+            <Select.Trigger variant='soft' />
+          )}
+          <Select.Content color={color} position='popper'>
+            {items.map((item, index) => (
+              <Select.Item key={index} value={item.value}>
+                {item.label}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </>
+      ) : (
+        <>
+          {isDisabled ? <Select.Trigger disabled /> : <Select.Trigger />}
+          <Select.Content position='popper'>
+            {items.map((item, index) => (
+              <Select.Item key={index} value={item.value}>
+                {item.label}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </>
+      )}
+    </Select.Root>
   );
 };
 

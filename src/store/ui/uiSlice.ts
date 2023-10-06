@@ -1,4 +1,8 @@
-import { SidebarDataType, UiMenuType } from '@/components/types/ui/types';
+import {
+  SidebarDataType,
+  UiMenuType,
+  UiModalType,
+} from '@/components/types/ui/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const getMenuItems = localStorage.getItem('menuItems') || '';
@@ -13,6 +17,9 @@ type UiStateType = {
     notifications: boolean;
     navigation: boolean;
   };
+  modals: {
+    newEntryForm: boolean;
+  };
 };
 
 const initialState: UiStateType = {
@@ -24,12 +31,18 @@ const initialState: UiStateType = {
     notifications: false,
     navigation: false,
   },
+  modals: {
+    newEntryForm: false,
+  },
 };
 
 export const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
+    setSidebarData: (state, action) => {
+      state.sidebarData = action.payload;
+    },
     showMenu: (
       state,
       action: PayloadAction<{ variant: UiMenuType; show: boolean }>
@@ -37,8 +50,12 @@ export const uiSlice = createSlice({
       const { variant, show } = action.payload;
       state.menus[variant] = show;
     },
-    setSidebarData: (state, action) => {
-      state.sidebarData = action.payload;
+    showModal: (
+      state,
+      action: PayloadAction<{ variant: UiModalType; show: boolean }>
+    ) => {
+      const { variant, show } = action.payload;
+      state.modals[variant] = show;
     },
   },
 });

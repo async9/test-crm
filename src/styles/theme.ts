@@ -9,6 +9,7 @@ export const defaultTheme: DefaultTheme = {
     grey: '#7C7F8F',
     greyDark: '#7C7F8F33',
     greyLight: '#E4E7F0CC',
+    // overlay: 'rgba(25, 29, 33, 0.85)',
   },
   fonts: {
     main: 'IBM Plex Sans, sans-serif',
