@@ -1,8 +1,4 @@
-import {
-  SidebarDataType,
-  UiMenuType,
-  UiModalType,
-} from '@/components/types/ui/types';
+import { SidebarDataType, UiMenuType, UiModalType } from '@/types/ui/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const getMenuItems = localStorage.getItem('menuItems') || '';
@@ -19,6 +15,7 @@ type UiStateType = {
   };
   modals: {
     newEntryForm: boolean;
+    viewOptionsTable: boolean;
   };
 };
 
@@ -33,6 +30,7 @@ const initialState: UiStateType = {
   },
   modals: {
     newEntryForm: false,
+    viewOptionsTable: false,
   },
 };
 

@@ -20,4 +20,4 @@ export type UiMenuType =
   | 'notifications'
   | 'navigation';
 
-export type UiModalType = 'newEntryForm';
+export type UiModalType = 'newEntryForm' | 'viewOptionsTable';

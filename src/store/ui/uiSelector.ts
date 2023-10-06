@@ -1,4 +1,4 @@
-import { UiMenuType, UiModalType } from '@/components/types/ui/types';
+import { UiMenuType, UiModalType } from '@/types/ui/types';
 import { RootState } from '../store';
 
 export const selectSidebarData = (state: RootState) => state.ui.sidebarData;

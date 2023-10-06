@@ -7,7 +7,7 @@ import { icons } from '../constants';
 import { selectShowMenu } from '@/store/ui/uiSelector';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { uiActions } from '@/store/ui/uiSlice';
-import { SidebarDataType } from '@/components/types/ui/types';
+import { SidebarDataType } from '@/types/ui/types';
 
 const GroupItems: FC<{ data: SidebarDataType }> = ({ data }) => {
   const dispatch = useAppDispatch();

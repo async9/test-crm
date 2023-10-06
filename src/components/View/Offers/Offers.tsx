@@ -68,7 +68,16 @@ const Offers: FC = () => {
                   Vezi stocuri
                   <ArrowRightIcon />
                 </Button>
-                <Button>
+                <Button
+                  onClick={() =>
+                    dispatch(
+                      uiActions.showModal({
+                        variant: 'viewOptionsTable',
+                        show: true,
+                      })
+                    )
+                  }
+                >
                   <GridIcon />
                   Visibilitate coloane
                 </Button>
