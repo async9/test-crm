@@ -1,7 +1,11 @@
-import { UiMenuType } from '@/components/types/ui/types';
+import { SidebarDataType, UiMenuType } from '@/components/types/ui/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+const getMenuItems = localStorage.getItem('menuItems') || '';
+const menuItems = getMenuItems ? JSON.parse(getMenuItems) : null;
+
 type UiStateType = {
+  sidebarData: null | SidebarDataType[];
   menus: {
     user: boolean;
     sidebar: boolean;
@@ -12,6 +16,7 @@ type UiStateType = {
 };
 
 const initialState: UiStateType = {
+  sidebarData: menuItems,
   menus: {
     user: false,
     sidebar: false,
@@ -31,6 +36,9 @@ export const uiSlice = createSlice({
     ) => {
       const { variant, show } = action.payload;
       state.menus[variant] = show;
+    },
+    setSidebarData: (state, action) => {
+      state.sidebarData = action.payload;
     },
   },
 });

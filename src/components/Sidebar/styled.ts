@@ -57,7 +57,7 @@ const shrinkWidthM = keyframes`
   }
 `;
 
-export const Root = styled.aside<{ showSidebar: boolean }>`
+export const Root = styled.aside<{ showSidebarMenu: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -78,8 +78,8 @@ export const Root = styled.aside<{ showSidebar: boolean }>`
     background-color: #111;
   }
   color: ${({ theme }) => theme.colors.white};
-  ${({ showSidebar }) =>
-    showSidebar
+  ${({ showSidebarMenu }) =>
+    showSidebarMenu
       ? css`
           animation: ${growWidth} 0.3s ease-in forwards;
           @media (${BREAKPOINTS.S}) {

@@ -1,4 +1,8 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router';
+import toast from 'react-hot-toast';
+import { AxiosError } from 'axios';
+import Cookies from 'universal-cookie';
 import {
   Button,
   Card,
@@ -8,13 +12,10 @@ import {
   Text,
   TextField,
 } from '@radix-ui/themes';
-import Cookies from 'universal-cookie';
-import toast from 'react-hot-toast';
 import { useAppDispatch } from '../../hooks/redux';
 import { useLoginMutation } from '../../api/auth';
 import { userActions } from '../../store/user/userSlice';
-import { useNavigate } from 'react-router';
-import { AxiosError } from 'axios';
+import { uiActions } from '@/store/ui/uiSlice';
 
 const cookies = new Cookies();
 type InputType = 'email' | 'password';
@@ -40,6 +41,7 @@ const AuthForm: FC = () => {
         dispatch(userActions.setUserToken(res.token));
         dispatch(userActions.setUsername(res.username));
 
+        dispatch(uiActions.setSidebarData(res.menuItems));
         localStorage.setItem('menuItems', JSON.stringify(res.menuItems));
         navigate('/offers', { replace: true });
         toast.success('Logged in succesfully', { duration: 3000 });

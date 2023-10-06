@@ -26,15 +26,15 @@ export const Row = styled.div`
   }
 `;
 
-export const TriggerText = styled.div<{ showSidebar: boolean }>`
+export const TriggerText = styled.div<{ showSidebarMenu: boolean }>`
   min-width: max-content;
   ${bodyM}
   font-weight: 500;
   margin-left: 1rem;
   opacity: 0;
   transition: all 0.3s ease-in;
-  ${({ showSidebar }) =>
-    showSidebar
+  ${({ showSidebarMenu }) =>
+    showSidebarMenu
       ? css`
           opacity: 1;
         `

@@ -6,18 +6,18 @@ const spin = keyframes`
 `;
 
 export const Root = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
 `;
 
 export const Spin = styled.div`
-  border: 4px solid ${({ theme }) => theme.colors.white};
-  border-top: 4px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 50%;
   width: 35px;
   height: 35px;
+  border-radius: 50%;
+  border: 4px solid ${({ theme }) => theme.colors.white};
+  border-top: 4px solid ${({ theme }) => theme.colors.primary};
   animation: ${spin} 0.8s linear infinite;
 `;

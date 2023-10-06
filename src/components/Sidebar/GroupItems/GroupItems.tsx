@@ -7,33 +7,36 @@ import { icons } from '../constants';
 import { selectShowMenu } from '@/store/ui/uiSelector';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { uiActions } from '@/store/ui/uiSlice';
+import { SidebarDataType } from '@/components/types/ui/types';
 
-const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
+const GroupItems: FC<{ data: SidebarDataType }> = ({ data }) => {
   const dispatch = useAppDispatch();
   const showSidebarMenu = useAppSelector((state) =>
     selectShowMenu(state, 'sidebar')
   );
 
+  const handleShowMenu = () => {
+    if (!showSidebarMenu) {
+      dispatch(
+        uiActions.showMenu({
+          variant: 'sidebar',
+          show: true,
+        })
+      );
+    }
+  };
+
   return (
     <div>
-      {showSidebarMenu ? <Label>{label}</Label> : null}
+      {showSidebarMenu ? <Label>{data.header}</Label> : null}
       <Accordion.Root type='single' collapsible style={{ padding: '2rem' }}>
-        {items.map((item, index) => (
+        {data.content.map((item, index) => (
           <Accordion.Item
             key={index}
             value={`item-${index}`}
             style={{ marginBottom: '2rem' }}
           >
-            <Accordion.Header
-              onClick={() =>
-                dispatch(
-                  uiActions.showMenu({
-                    variant: 'sidebar',
-                    show: !showSidebarMenu,
-                  })
-                )
-              }
-            >
+            <Accordion.Header onClick={handleShowMenu}>
               <Accordion.Trigger>
                 <Row>
                   <Icon>
@@ -44,7 +47,7 @@ const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
                       title='Icon'
                     />
                   </Icon>
-                  <TriggerText showSidebar={showSidebarMenu}>
+                  <TriggerText showSidebarMenu={showSidebarMenu}>
                     {item.label}
                   </TriggerText>
                   {showSidebarMenu ? <ChevronDownIcon aria-hidden /> : null}
@@ -60,7 +63,7 @@ const GroupItems: FC<{ label: string; items: any[] }> = ({ label, items }) => {
                 }}
               >
                 <ul>
-                  {item.content.map((item: any, index: number) => (
+                  {item.content.map((item, index: number) => (
                     <ListItem key={index}>
                       <LinkItem
                         href={`${import.meta.env.VITE_DOMAIN}/${item.to}`}

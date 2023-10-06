@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import bgImage from '@/assets/images/bg.webp';
 
 export const Root = styled.div`
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
-  width: 100wh;
-  padding: 20rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: url(${bgImage}) center / cover no-repeat;
+`;
+
+export const Title = styled.div`
+  font-size: 5.6rem;
+  font-weight: 700;
 `;
