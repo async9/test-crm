@@ -11,9 +11,4 @@ export default defineConfig({
       '#': path.resolve(__dirname, 'types'),
     },
   },
-  build: {
-    rollupOptions: {
-      external: ['react-redux'],
-    },
-  },
 });
