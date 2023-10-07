@@ -9,6 +9,5 @@ export const Root = styled.div`
 
 export const Title = styled.div`
   ${bodyL}
-  color: #18181a;
   font-weight: 700;
 `;

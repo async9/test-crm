@@ -40,7 +40,7 @@ export const Row = styled.div`
 export const Divider = styled.div`
   width: 1px;
   height: 28px;
-  background-color: ${({ theme }) => theme.colors.greyLight};
+  background-color: ${({ theme }) => theme.colors.borderLight};
 `;
 
 export const Box = styled.div`

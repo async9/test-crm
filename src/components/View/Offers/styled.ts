@@ -36,7 +36,6 @@ export const TopSection = styled.section`
 
 export const Title = styled.div`
   ${bodyL}
-  color: #18181a;
   font-weight: 700;
   margin-bottom: 2rem;
 `;
@@ -65,13 +64,13 @@ export const ButtonsBox = styled.div`
   gap: 1rem;
   &:first-child {
     padding-bottom: 1rem;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.greyLight};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
   }
   @media (${BREAKPOINTS.XS}) {
     &:first-child {
       padding-bottom: 0;
       padding-right: 1rem;
-      border-right: 1px solid ${({ theme }) => theme.colors.greyLight};
+      border-right: 1px solid ${({ theme }) => theme.colors.borderLight};
     }
   }
   @media (${BREAKPOINTS.S}) {
@@ -79,7 +78,7 @@ export const ButtonsBox = styled.div`
       padding-right: 0;
       padding-bottom: 1rem;
       border-right: none;
-      border-bottom: 1px solid ${({ theme }) => theme.colors.greyLight};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
     }
   }
   @media (${BREAKPOINTS.L}) {
@@ -87,7 +86,7 @@ export const ButtonsBox = styled.div`
       padding-bottom: 0;
       padding-right: 1rem;
       border-bottom: none;
-      border-right: 1px solid ${({ theme }) => theme.colors.greyLight};
+      border-right: 1px solid ${({ theme }) => theme.colors.borderLight};
     }
   }
 `;

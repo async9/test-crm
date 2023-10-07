@@ -4,7 +4,7 @@ import { label } from '@/styles/mixins';
 import { bodyM, bodyS, bodyXL } from '@/styles/typography';
 
 export const Root = styled.div`
-  background-color: #111;
+  background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const Top = styled.div`
@@ -13,7 +13,7 @@ export const Top = styled.div`
   justify-content: space-between;
   padding: 1.8rem 0 1.6rem 0;
   margin: 0 1.8rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
 export const Title = styled.div`
@@ -53,6 +53,7 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   ${bodyM}
   font-weight: 500;
+  color: ${({ theme }) => theme.colors.textGrey};
   border-radius: 4px;
   padding: 0.5rem 1.2rem;
   @media (${BREAKPOINTS.S}) {

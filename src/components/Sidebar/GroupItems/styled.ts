@@ -60,7 +60,7 @@ export const ListItem = styled.li`
 export const LinkItem = styled.a`
   ${bodyM}
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.greyLight};
+  color: ${({ theme }) => theme.colors.textGrey};
   @media (${BREAKPOINTS.S}) {
     transition: 0.3s linear;
   }

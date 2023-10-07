@@ -8,8 +8,9 @@ export const Root = styled.div`
   top: 50px;
   right: 0;
   width: 100%;
-  border-radius: 6px;
   overflow: hidden;
+  border-radius: 6px;
+  border: 2px solid ${({ theme }) => theme.colors.borderDark};
   @media (${BREAKPOINTS.S}) {
     top: 64px;
     right: 1rem;
@@ -24,7 +25,7 @@ export const Top = styled.div`
   justify-content: space-between;
   padding: 1.8rem;
   background: url(${menuCardToBgImage}) center / cover no-repeat;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
 export const Title = styled.div`

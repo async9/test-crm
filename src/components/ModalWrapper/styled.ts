@@ -28,11 +28,10 @@ export const Top = styled.div`
   justify-content: space-between;
   padding: 1.8rem 0;
   background-color: #fff;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.greyLight};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderLight};
 `;
 
 export const Title = styled.h2`
   ${bodyXXL}
   font-weight: 500;
-  color: #18181a;
 `;

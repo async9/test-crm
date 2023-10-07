@@ -1,7 +1,7 @@
-import { BREAKPOINTS } from '@/constants';
-import { scrollbar } from '@/styles/mixins';
-import { bodyS } from '@/styles/typography';
 import styled, { css } from 'styled-components';
+import { bodyS } from '@/styles/typography';
+import { scrollbar } from '@/styles/mixins';
+import { BREAKPOINTS } from '@/constants';
 
 export const Root = styled.div`
   position: relative;
@@ -16,12 +16,12 @@ export const Trigger = styled.div<{ disabled: boolean }>`
   justify-content: space-between;
   padding: 0 0.8rem 0 1.2rem;
   border-radius: 5px;
-  border: 1px solid #e1e1e1;
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
   ${({ disabled }) =>
     disabled
       ? css`
           opacity: 0.3;
-          background-color: ${({ theme }) => theme.colors.greyLight};
+          background-color: ${({ theme }) => theme.colors.borderLight};
         `
       : null}
   @media (${BREAKPOINTS.S}) {
@@ -56,13 +56,13 @@ export const Content = styled.div<{ $showContent: boolean }>`
 `;
 
 export const List = styled.ul`
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #e1e1e1;
-  background-color: #fff;
-  box-shadow: 1px 17px 29px 3px rgba(0, 0, 0, 0.12);
   max-height: 300px;
   overflow-y: auto;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: 1px 17px 29px 3px rgba(0, 0, 0, 0.12);
   ${scrollbar}
 `;
 
@@ -71,12 +71,11 @@ export const Item = styled.li`
   height: 32px;
   display: flex;
   align-items: center;
-  color: #111;
   border-radius: 4px;
   @media (${BREAKPOINTS.S}) {
     cursor: pointer;
     &:hover {
-      color: #fff;
+      color: ${({ theme }) => theme.colors.white};
       background-color: ${({ theme }) => theme.colors.primary};
     }
   }

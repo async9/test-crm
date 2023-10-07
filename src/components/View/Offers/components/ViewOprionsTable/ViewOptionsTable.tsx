@@ -31,8 +31,8 @@ const ViewOptionsTable: FC = () => {
               uiActions.showModal({ variant: 'viewOptionsTable', show: false })
             )
           }
-          color='green'
-          style={{ width: '200px' }}
+          size='3'
+          style={{ width: '120px' }}
         >
           Okay
         </Button>

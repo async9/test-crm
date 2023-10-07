@@ -1,5 +1,5 @@
-import { BREAKPOINTS } from '@/constants';
 import styled, { css } from 'styled-components';
+import { BREAKPOINTS } from '@/constants';
 
 export const Root = styled.div`
   position: relative;
@@ -13,7 +13,7 @@ export const CalendarContainer = styled.div<{ positionRight: boolean }>`
   & > div {
     width: 290px;
     border-radius: 6px;
-    border: 1px solid ${({ theme }) => theme.colors.greyLight};
+    border: 1px solid ${({ theme }) => theme.colors.borderLight};
   }
   @media (${BREAKPOINTS.S}) {
     left: 50%;

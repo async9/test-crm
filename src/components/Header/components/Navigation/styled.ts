@@ -4,7 +4,7 @@ import { bodyM } from '@/styles/typography';
 
 export const Root = styled.div`
   padding: 1.8rem;
-  background-color: #111;
+  background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const ListItem = styled.li`

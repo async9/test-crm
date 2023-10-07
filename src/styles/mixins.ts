@@ -5,13 +5,14 @@ export const DividerX = styled.div`
   width: 100%;
   height: 1px;
   margin: 1rem 0;
-  background-color: ${({ theme }) => theme.colors.greyLight};
+  background-color: ${({ theme }) => theme.colors.borderLight};
 `;
 
 export const DividerY = styled.div`
   width: 1px;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.greyLight};
+  margin: 0 1rem;
+  background-color: ${({ theme }) => theme.colors.borderLight};
 `;
 
 export const label = css`
@@ -20,8 +21,8 @@ export const label = css`
   width: max-content;
   border-radius: 0 4px 4px 0;
   padding: 0.5rem 1.2rem;
-  color: #111;
-  background-color: ${({ theme }) => theme.colors.greyLight};
+  color: ${({ theme }) => theme.colors.textDark};
+  background-color: ${({ theme }) => theme.colors.grey};
 `;
 
 export const scrollbar = css`

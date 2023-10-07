@@ -114,14 +114,14 @@ export const Top = styled.div`
   align-items: center;
   justify-content: end;
   padding: 0 1.8rem 0 1.6rem;
-  border-right: 1px solid ${({ theme }) => theme.colors.grey};
+  border-right: 1px solid ${({ theme }) => theme.colors.borderDark};
   @media (${BREAKPOINTS.S}) {
     height: 60px;
   }
 `;
 
 export const Button = styled.button`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.textLight};
   svg {
     width: 24px;
     height: 24px;

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import SVG from 'react-inlinesvg';
-import { BodyCard, BodyContainer, Root, Top } from './styled';
+import { BodyCard, BodyContainer, Card, Root, Top } from './styled';
 import { Badge, Button, Flex, Text } from '@radix-ui/themes';
 import { IconButton, MenuScroll } from '@/styles/mixins';
 import { ArrowRightIcon, CaretDownIcon } from '@radix-ui/react-icons';
@@ -20,83 +20,181 @@ const Notifications: FC = () => {
         </Text>
       </Top>
       <MenuScroll>
-        <Flex align='center' justify='between'>
-          <Flex align='center'>
-            <SVG src={mailIcon} title='Mail icon' />
-            <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-              5 Oct 2023
-            </Text>
-          </Flex>
-          <IconButton>
-            <CaretDownIcon />
-          </IconButton>
-        </Flex>
-        <BodyContainer>
-          <BodyCard>
-            <div>
-              <Text style={{ fontWeight: '700', marginBottom: 'rem' }}>
-                Notification title
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                5 Oct 2023
               </Text>
-              <br />
-              <Text>Some description example...</Text>
-            </div>
-            <IconButton style={{ marginLeft: '2rem' }}>
-              <ArrowRightIcon />
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
             </IconButton>
-          </BodyCard>
-        </BodyContainer>
+          </Flex>
+          <BodyContainer>
+            <BodyCard>
+              <div>
+                <Text style={{ fontWeight: '700', marginBottom: 'rem' }}>
+                  Notification title
+                </Text>
+                <br />
+                <Text>Some description example...</Text>
+              </div>
+              <IconButton style={{ marginLeft: '2rem' }}>
+                <ArrowRightIcon />
+              </IconButton>
+            </BodyCard>
+          </BodyContainer>
+        </Card>
 
-        <Flex align='center' justify='between'>
-          <Flex align='center'>
-            <SVG src={mailIcon} title='Mail icon' />
-            <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-              5 Oct 2023
-            </Text>
-          </Flex>
-          <IconButton>
-            <CaretDownIcon />
-          </IconButton>
-        </Flex>
-        <BodyContainer>
-          <BodyCard>
-            <div>
-              <Text style={{ fontWeight: '700', marginBottom: 'rem' }}>
-                Notification title
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                4 Oct 2023
               </Text>
-              <br />
-              <Text>Some description example...</Text>
-            </div>
-            <IconButton style={{ marginLeft: '2rem' }}>
-              <ArrowRightIcon />
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
             </IconButton>
-          </BodyCard>
-        </BodyContainer>
+          </Flex>
+        </Card>
 
-        <Flex align='center' justify='between'>
-          <Flex align='center'>
-            <SVG src={mailIcon} title='Mail icon' />
-            <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-              5 Oct 2023
-            </Text>
-          </Flex>
-          <IconButton>
-            <CaretDownIcon />
-          </IconButton>
-        </Flex>
-        <BodyContainer>
-          <BodyCard>
-            <div>
-              <Text style={{ fontWeight: '700', marginBottom: 'rem' }}>
-                Notification title
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                4 Oct 2023
               </Text>
-              <br />
-              <Text>Some description example...</Text>
-            </div>
-            <IconButton style={{ marginLeft: '2rem' }}>
-              <ArrowRightIcon />
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
             </IconButton>
-          </BodyCard>
-        </BodyContainer>
+          </Flex>
+        </Card>
+
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                4 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                3 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                3 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                2 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                2 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                2 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                1 Oct 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                29 Sep 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
+        <Card>
+          <Flex align='center' justify='between'>
+            <Flex align='center'>
+              <SVG src={mailIcon} title='Mail icon' />
+              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
+                27 Sep 2023
+              </Text>
+            </Flex>
+            <IconButton>
+              <CaretDownIcon />
+            </IconButton>
+          </Flex>
+        </Card>
       </MenuScroll>
     </Root>
   );
