@@ -6,10 +6,9 @@ export const Dialog = styled.dialog`
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
-  padding: 0;
+  padding: 1.8rem;
   border: none;
   outline: none;
-  padding: 1.8rem;
   border-radius: 6px;
   ${scrollbar}
   &::backdrop {

@@ -21,7 +21,6 @@ import {
   PlusIcon,
   UpdateIcon,
 } from '@radix-ui/react-icons';
-import SelectItems from '@/components/Select/Select';
 import {
   selectAgent,
   selectBySearchType,
@@ -37,6 +36,7 @@ import CalendarWrapper from '@/components/CalendarWrapper/CalendarWrapper';
 import { uiActions } from '@/store/ui/uiSlice';
 import { useAppDispatch } from '@/hooks/redux';
 import Modals from './components/Modals/Modals';
+import Select from '@/components/Select/Select';
 
 const Offers: FC = () => {
   const dispatch = useAppDispatch();
@@ -112,30 +112,12 @@ const Offers: FC = () => {
                   <Search />
                 </Box>
                 <SelectsContainer>
-                  <SelectItems
-                    defaultValue={selectTimeline[0].value}
-                    items={selectTimeline}
-                  />
-                  <SelectItems
-                    defaultValue={selectBySearchType[0].value}
-                    items={selectBySearchType}
-                  />
-                  <SelectItems
-                    defaultValue={selectDealer[0].value}
-                    items={selectDealer}
-                  />
-                  <SelectItems
-                    defaultValue={selectSearchDealer[0].value}
-                    items={selectSearchDealer}
-                  />
-                  <SelectItems
-                    defaultValue={selectDepartment[0].value}
-                    items={selectDepartment}
-                  />
-                  <SelectItems
-                    defaultValue={selectAgent[0].value}
-                    items={selectAgent}
-                  />
+                  <Select items={selectTimeline} />
+                  <Select items={selectBySearchType} />
+                  <Select items={selectDealer} />
+                  <Select items={selectSearchDealer} />
+                  <Select items={selectDepartment} />
+                  <Select items={selectAgent} />
                 </SelectsContainer>
               </Column>
             </Card>

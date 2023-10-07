@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { Container, Theme } from '@radix-ui/themes';
 import { Root } from './styled';
-import AuthForm from '../../Forms/AuthForm/AuthForm';
+import AuthForm from './components/AuthForm/AuthForm';
 import { useAppSelector } from '@/hooks/redux';
 import { selectUserToken } from '@/store/user/userSelects';
 import { useNavigate } from 'react-router';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import NewEntryForm from '@/components/Forms/NewEntry/NewEntryForm';
+import NewEntryForm from '@/components/View/Offers/components/NewEntry/NewEntryForm';
 import ModalWrapper from '@/components/ModalWrapper/ModalWrapper';
 import { selectShowModal } from '@/store/ui/uiSelector';
 import { uiActions } from '@/store/ui/uiSlice';

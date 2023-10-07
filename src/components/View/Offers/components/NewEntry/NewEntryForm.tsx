@@ -11,8 +11,9 @@ import {
 import { Box, ButtonsGoup, Container, Form } from './styled';
 import { DividerX } from '@/styles/mixins';
 import Search from '@/components/Search/Search';
-import SelectItems from '@/components/Select/Select';
 import useScreenSize from '@/hooks/useScreenSize';
+import { selectNewEntryDetails } from '@/components/View/Offers/constants';
+import Select from '@/components/Select/Select';
 
 const NewEntryForm: FC = () => {
   const { isMobile } = useScreenSize();
@@ -100,6 +101,7 @@ const NewEntryForm: FC = () => {
           defaultValue={selectNewEntryDetails[0].value}
           items={selectNewEntryDetails}
         /> */}
+        <Select items={selectNewEntryDetails} />
         <DividerX />
         <ButtonsGoup>
           <Flex gap='3'>

@@ -45,8 +45,8 @@ const ModalWrapper: React.FC<{
   };
 
   return (
-    <Dialog role='presentation' ref={dialogRef} onClick={handleBackdropClick}>
-      <Flex align='center' justify='between'>
+    <Dialog ref={dialogRef} onClick={handleBackdropClick}>
+      <Flex ref={contentRef} align='center' justify='between'>
         <Title>{title}</Title>
         <IconButton onClick={() => onClose()} variant='light'>
           <Cross1Icon />

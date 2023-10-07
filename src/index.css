@@ -11,8 +11,6 @@ body {
   font-size: 10px;
   -webkit-font-smoothing: antialiased;
   font-family: 'IBM Plex Sans', sans-serif;
-  position: relative;
-  background: #111;
 }
 
 a {
@@ -20,9 +18,11 @@ a {
   text-decoration: none;
 }
 
-ul {
+ul,
+li {
   list-style: none;
-  font-weight: bold;
+  color: inherit;
+  font-family: inherit;
 }
 
 button {
