@@ -1,23 +1,19 @@
-import { BREAKPOINTS } from '@/constants';
-import { menuCardTop, label } from '@/styles/mixins';
-import { bodyM, bodyS, bodyXL } from '@/styles/typography';
 import styled from 'styled-components';
+import { BREAKPOINTS } from '@/constants';
+import { label } from '@/styles/mixins';
+import { bodyM, bodyS, bodyXL } from '@/styles/typography';
 
 export const Root = styled.div`
-  overflow: hidden;
-  border-radius: 6px;
   background-color: #111;
 `;
 
 export const Top = styled.div`
-  ${menuCardTop}
-`;
-
-export const InnerTop = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.6rem;
+  padding: 1.8rem 0 1.6rem 0;
+  margin: 0 1.8rem;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
 `;
 
 export const Title = styled.div`

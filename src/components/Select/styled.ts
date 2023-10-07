@@ -1,4 +1,5 @@
 import { BREAKPOINTS } from '@/constants';
+import { scrollbar } from '@/styles/mixins';
 import { bodyS } from '@/styles/typography';
 import styled, { css } from 'styled-components';
 
@@ -60,6 +61,9 @@ export const List = styled.ul`
   border: 1px solid #e1e1e1;
   background-color: #fff;
   box-shadow: 1px 17px 29px 3px rgba(0, 0, 0, 0.12);
+  max-height: 300px;
+  overflow-y: auto;
+  ${scrollbar}
 `;
 
 export const Item = styled.li`

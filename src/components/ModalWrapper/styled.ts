@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { scrollbar } from '@/styles/mixins';
+import { bodyXXL } from '@/styles/typography';
 
 export const Dialog = styled.dialog`
   position: fixed;
@@ -17,7 +18,7 @@ export const Dialog = styled.dialog`
 `;
 
 export const Title = styled.h2`
-  font-size: 2.8rem;
+  ${bodyXXL}
   font-weight: 500;
   color: #18181a;
 `;

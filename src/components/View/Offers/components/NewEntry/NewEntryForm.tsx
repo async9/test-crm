@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import {
-  Badge,
   Button,
   Checkbox,
   Flex,
@@ -9,11 +8,15 @@ import {
   TextField,
 } from '@radix-ui/themes';
 import { Box, ButtonsGoup, Container, Form } from './styled';
-import { DividerX } from '@/styles/mixins';
 import Search from '@/components/Search/Search';
 import useScreenSize from '@/hooks/useScreenSize';
-import { selectNewEntryDetails } from '@/components/View/Offers/constants';
+import {
+  selectNewEntryDetails,
+  selectNewEntryRegion,
+} from '@/components/View/Offers/constants';
 import Select from '@/components/Select/Select';
+import InputLabel from '@/components/InputLabel/InputLabel';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 
 const NewEntryForm: FC = () => {
   const { isMobile } = useScreenSize();
@@ -37,12 +40,7 @@ const NewEntryForm: FC = () => {
           </Text>
         </Flex>
         <TextArea placeholder='Adauga titlu' />
-        <DividerX />
-        <Flex gap='2' style={{ marginTop: '1.6rem' }}>
-          <Badge color='yellow' variant='soft'>
-            *Obligator
-          </Badge>
-        </Flex>
+        <InputLabel title='*Obligator' />
         <Flex gap='5'>
           <Text size='2'>
             <Flex gap='2'>
@@ -61,12 +59,9 @@ const NewEntryForm: FC = () => {
           </Text>
         </Flex>
         <div>
-          <Badge color='yellow' variant='soft' style={{ marginBottom: '1rem' }}>
-            *Minim 5 caractere alfanumerice sugestive
-          </Badge>
+          <InputLabel title=' *Minim 5 caractere alfanumerice sugestive' />
           <Search placeholder='Telefon / CPN / CUI' />
         </div>
-        <DividerX />
         <Container>
           <Box>
             <TextField.Slot>Telefon</TextField.Slot>
@@ -79,30 +74,24 @@ const NewEntryForm: FC = () => {
         </Container>
         <Container>
           <Box>
-            <Flex align='center' gap='2'>
-              <TextField.Slot>Numele</TextField.Slot>
-              <Badge color='yellow' variant='soft'>
-                *Obligator
-              </Badge>
-            </Flex>
+            <InputLabel label='Numele' title='*Obligator' />
             <TextField.Input />
           </Box>
           <Box>
-            <Flex align='center' gap='2'>
-              <TextField.Slot>Email</TextField.Slot>
-              <Badge color='yellow' variant='soft'>
-                *Obligator
-              </Badge>
-            </Flex>
+            <InputLabel label='Email' title='*Obligator' />
             <TextField.Input />
           </Box>
         </Container>
-        {/* <SelectItems
-          defaultValue={selectNewEntryDetails[0].value}
-          items={selectNewEntryDetails}
-        /> */}
-        <Select items={selectNewEntryDetails} />
-        <DividerX />
+        <Container>
+          <Box>
+            <InputLabel label='Detalii' title='*Obligator' />
+            <Select items={selectNewEntryDetails} />
+          </Box>
+          <Box>
+            <InputLabel label='Judet' title='*Obligator' />
+            <Select items={selectNewEntryRegion} />
+          </Box>
+        </Container>
         <ButtonsGoup>
           <Flex gap='3'>
             <Button
@@ -116,9 +105,9 @@ const NewEntryForm: FC = () => {
               Renunta
             </Button>
           </Flex>
-          {isMobile ? <DividerX /> : null}
-          <Button color='green' style={{ width: isMobile ? '100%' : '100px' }}>
-            Submit
+          <Button color='green' style={{ width: isMobile ? '100%' : '' }}>
+            Inainte
+            <ArrowRightIcon />
           </Button>
         </ButtonsGoup>
       </Flex>

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import menuCardToBgImage from '@/assets/images/bg-menu.jpg';
 import { BREAKPOINTS } from '@/constants';
 
 export const DividerX = styled.div`
@@ -40,14 +39,17 @@ export const scrollbar = css`
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background-color: ${({ theme }) => theme.colors.grey};
+    background-color: #e1e1e1;
   }
 `;
 
-export const menuCardTop = css`
-  padding: 1.8rem;
-  background: url(${menuCardToBgImage}) center / cover no-repeat;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+export const MenuScroll = styled.div`
+  min-height: 40px;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 1rem;
+  ${scrollbar}
 `;
 
 export const IconButton = styled.button<{

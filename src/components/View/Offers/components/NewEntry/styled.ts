@@ -14,6 +14,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-top: 1.6rem;
   @media (${BREAKPOINTS.S}) {
     flex-direction: row;
   }

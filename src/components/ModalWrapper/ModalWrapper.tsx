@@ -49,7 +49,7 @@ const ModalWrapper: React.FC<{
       <Flex ref={contentRef} align='center' justify='between'>
         <Title>{title}</Title>
         <IconButton onClick={() => onClose()} variant='light'>
-          <Cross1Icon />
+          <Cross1Icon style={{ width: '20px', height: '20px' }} />
         </IconButton>
       </Flex>
       <div ref={contentRef}>{children}</div>

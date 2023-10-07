@@ -1,19 +1,33 @@
-import { BREAKPOINTS } from '@/constants';
-import { scrollbar } from '@/styles/mixins';
 import styled from 'styled-components';
+import { BREAKPOINTS } from '@/constants';
+import { bodyXL } from '@/styles/typography';
+import menuCardToBgImage from '@/assets/images/bg-menu.jpg';
 
 export const Root = styled.div`
   position: fixed;
   top: 50px;
   right: 0;
   width: 100%;
-  padding: 1rem;
-  overflow-y: scroll;
-  ${scrollbar}
+  border-radius: 6px;
+  overflow: hidden;
   @media (${BREAKPOINTS.S}) {
     top: 64px;
     right: 1rem;
     max-width: 350px;
     padding: 0;
   }
+`;
+
+export const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem;
+  background: url(${menuCardToBgImage}) center / cover no-repeat;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+`;
+
+export const Title = styled.div`
+  ${bodyXL}
+  font-weight: 500;
 `;

@@ -125,6 +125,7 @@ const Header: FC = () => {
             )}
             {showUserMenu ? (
               <MenuWrapper
+                title='Profile'
                 onClose={() =>
                   dispatch(
                     uiActions.showMenu({
@@ -139,6 +140,7 @@ const Header: FC = () => {
             ) : null}
             {showNotificationsMenu ? (
               <MenuWrapper
+                title='Notificatii'
                 onClose={() =>
                   dispatch(
                     uiActions.showMenu({
@@ -153,6 +155,7 @@ const Header: FC = () => {
             ) : null}
             {showTargetsMenu ? (
               <MenuWrapper
+                title='Targete'
                 onClose={() =>
                   dispatch(
                     uiActions.showMenu({
@@ -167,6 +170,7 @@ const Header: FC = () => {
             ) : null}
             {showNavigationMenu ? (
               <MenuWrapper
+                title='Navigatie rapida'
                 onClose={() =>
                   dispatch(
                     uiActions.showMenu({
