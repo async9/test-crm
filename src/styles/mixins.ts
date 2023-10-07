@@ -53,7 +53,7 @@ export const MenuScroll = styled.div`
 `;
 
 export const IconButton = styled.button<{
-  showMenu?: boolean;
+  $showMenu?: boolean;
   variant?: 'dark' | 'light';
 }>`
   svg {
@@ -77,8 +77,8 @@ export const IconButton = styled.button<{
             }
           }
         `}
-  ${({ showMenu }) =>
-    showMenu
+  ${({ $showMenu }) =>
+    $showMenu
       ? css`
           svg {
             path {

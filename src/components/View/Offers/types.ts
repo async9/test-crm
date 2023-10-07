@@ -18,8 +18,11 @@ export type StatusDataType = {
   rootUuid: string;
 };
 
-export type StatusDataVariantType =
+export type QueryVariantType =
+  | 'PROSPECTARE'
   | 'OFERTA'
   | 'CONTACT'
   | 'NU_ACUM'
-  | 'COMANDA';
+  | 'COMANDA'
+  | 'FACTURA'
+  | 'REFUZ_CLIENT';

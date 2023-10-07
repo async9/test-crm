@@ -47,7 +47,7 @@ const GroupItems: FC<{ data: SidebarDataType }> = ({ data }) => {
                       title='Icon'
                     />
                   </Icon>
-                  <TriggerText showSidebarMenu={showSidebarMenu}>
+                  <TriggerText $showSidebarMenu={showSidebarMenu}>
                     {item.label}
                   </TriggerText>
                   {showSidebarMenu ? <ChevronDownIcon aria-hidden /> : null}

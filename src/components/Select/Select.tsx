@@ -64,13 +64,13 @@ const Select: FC<{
     <Root id={containerId} ref={containerRef}>
       <Trigger onClick={handleShowContent} disabled={disabled}>
         {selectedItem.label}
-        <Icon showContent={showContent}>
+        <Icon $showContent={showContent}>
           <ChevronDownIcon />
         </Icon>
       </Trigger>
       <Content
         onClick={handleSelectItem}
-        showContent={showContent && !disabled}
+        $showContent={showContent && !disabled}
       >
         <List>
           {items.map((item, index) => (

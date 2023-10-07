@@ -16,7 +16,7 @@ const Sidebar: FC = () => {
 
   return (
     <Theme panelBackground='translucent' radius='small'>
-      <Root showSidebarMenu={showSidebarMenu}>
+      <Root $showSidebarMenu={showSidebarMenu}>
         <Top>
           <Button
             onClick={() =>

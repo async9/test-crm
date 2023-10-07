@@ -126,10 +126,25 @@ const Offers: FC = () => {
 
         <MainSection>
           <GridCards>
-            <CardsColumn variant='CONTACT' label='Agenda lucru' />
-            <CardsColumn variant='OFERTA' label='Oferte' />
-            <CardsColumn variant='NU_ACUM' label='Nu acum' />
-            <CardsColumn variant='COMANDA' label='Comenzi' />
+            <CardsColumn
+              variant='prospectare'
+              label='Prospectare'
+              query='PROSPECTARE'
+            />
+            <CardsColumn
+              variant='contact'
+              label='Agenda lucru'
+              query='CONTACT'
+            />
+            <CardsColumn variant='oferte' label='Oferte' query='OFERTA' />
+            <CardsColumn variant='nuAcum' label='Nu acum' query='NU_ACUM' />
+            <CardsColumn variant='comenzi' label='Comenzi' query='COMANDA' />
+            <CardsColumn variant='facturi' label='Facturi' query='FACTURA' />
+            <CardsColumn
+              variant='refuzClient'
+              label='Refuz client'
+              query='REFUZ_CLIENT'
+            />
           </GridCards>
         </MainSection>
         <Modals />

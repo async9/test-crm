@@ -64,7 +64,7 @@ const Header: FC = () => {
         </IconButton>
         <Row>
           <IconButton
-            showMenu={showNavigationMenu}
+            $showMenu={showNavigationMenu}
             onClick={() =>
               dispatch(
                 uiActions.showMenu({
@@ -77,7 +77,7 @@ const Header: FC = () => {
             <GridIcon />
           </IconButton>
           <IconButton
-            showMenu={showTargetsMenu}
+            $showMenu={showTargetsMenu}
             onClick={() =>
               dispatch(
                 uiActions.showMenu({
@@ -90,7 +90,7 @@ const Header: FC = () => {
             <TargetIcon />
           </IconButton>
           <IconButton
-            showMenu={showNotificationsMenu}
+            $showMenu={showNotificationsMenu}
             onClick={() =>
               dispatch(
                 uiActions.showMenu({
@@ -105,7 +105,7 @@ const Header: FC = () => {
           <Divider />
           <Box>
             <IconButton
-              showMenu={showUserMenu}
+              $showMenu={showUserMenu}
               onClick={() =>
                 dispatch(
                   uiActions.showMenu({

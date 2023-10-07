@@ -26,7 +26,7 @@ export const Row = styled.div`
   }
 `;
 
-export const TriggerText = styled.div<{ showSidebarMenu: boolean }>`
+export const TriggerText = styled.div<{ $showSidebarMenu: boolean }>`
   min-width: max-content;
   ${bodyM}
   color: ${({ theme }) => theme.colors.white};
@@ -34,8 +34,8 @@ export const TriggerText = styled.div<{ showSidebarMenu: boolean }>`
   margin-left: 1rem;
   opacity: 0;
   transition: all 0.3s ease-in;
-  ${({ showSidebarMenu }) =>
-    showSidebarMenu
+  ${({ $showSidebarMenu }) =>
+    $showSidebarMenu
       ? css`
           opacity: 1;
         `

@@ -1,4 +1,9 @@
-import { SidebarDataType, UiMenuType, UiModalType } from '@/types/ui/types';
+import {
+  SidebarDataType,
+  UiMenuType,
+  UiModalType,
+  UiOffersColumnType,
+} from '@/types/ui/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const getMenuItems = localStorage.getItem('menuItems') || '';
@@ -17,6 +22,15 @@ type UiStateType = {
     newEntryForm: boolean;
     viewOptionsTable: boolean;
   };
+  offersDataColumns: {
+    prospectare: boolean;
+    contact: boolean;
+    oferte: boolean;
+    nuAcum: boolean;
+    comenzi: boolean;
+    facturi: boolean;
+    refuzClient: boolean;
+  };
 };
 
 const initialState: UiStateType = {
@@ -31,6 +45,15 @@ const initialState: UiStateType = {
   modals: {
     newEntryForm: false,
     viewOptionsTable: false,
+  },
+  offersDataColumns: {
+    prospectare: false,
+    contact: true,
+    oferte: true,
+    nuAcum: true,
+    comenzi: true,
+    facturi: false,
+    refuzClient: false,
   },
 };
 
@@ -54,6 +77,13 @@ export const uiSlice = createSlice({
     ) => {
       const { variant, show } = action.payload;
       state.modals[variant] = show;
+    },
+    displayOffersDataColumns: (
+      state,
+      action: PayloadAction<{ variant: UiOffersColumnType; show: boolean }>
+    ) => {
+      const { variant, show } = action.payload;
+      state.offersDataColumns[variant] = show;
     },
   },
 });

@@ -1,8 +1,14 @@
 import { FC } from 'react';
-import { Button, Checkbox, Table } from '@radix-ui/themes';
 import { ButtonBox, Root } from './styled';
+import { Button, Table } from '@radix-ui/themes';
+import { tableData } from './constants';
+import TableRow from './TableRow';
+import { useAppDispatch } from '@/hooks/redux';
+import { uiActions } from '@/store/ui/uiSlice';
 
 const ViewOptionsTable: FC = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <Root>
       <Table.Root variant='surface'>
@@ -13,53 +19,22 @@ const ViewOptionsTable: FC = () => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          <Table.Row>
-            <Table.RowHeaderCell>Prospecte</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell>Agenda lucru</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox defaultChecked />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell>Oferte</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox defaultChecked />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell>Nu acum</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox defaultChecked />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell>Comenzi</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox defaultChecked />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell>Facturi</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox />
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell>Refuz client</Table.RowHeaderCell>
-            <Table.Cell>
-              <Checkbox />
-            </Table.Cell>
-          </Table.Row>
+          {tableData.map((item, index) => (
+            <TableRow key={index} label={item.label} variant={item.variant} />
+          ))}
         </Table.Body>
       </Table.Root>
       <ButtonBox>
-        <Button color='green' style={{ width: '200px' }}>
-          Save
+        <Button
+          onClick={() =>
+            dispatch(
+              uiActions.showModal({ variant: 'viewOptionsTable', show: false })
+            )
+          }
+          color='green'
+          style={{ width: '200px' }}
+        >
+          Okay
         </Button>
       </ButtonBox>
     </Root>

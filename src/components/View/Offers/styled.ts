@@ -144,8 +144,9 @@ export const MainSection = styled.section`
 `;
 
 export const GridCards = styled.div`
+  width: max-content;
   display: grid;
-  grid-template-columns: repeat(4, minmax(300px, 100%));
+  grid-auto-flow: column;
   gap: 1rem;
 `;
 

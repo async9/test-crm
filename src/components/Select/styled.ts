@@ -35,7 +35,7 @@ export const Trigger = styled.div<{ disabled: boolean }>`
   }
 `;
 
-export const Content = styled.div<{ showContent: boolean }>`
+export const Content = styled.div<{ $showContent: boolean }>`
   display: none;
   position: absolute;
   top: 36px;
@@ -46,8 +46,8 @@ export const Content = styled.div<{ showContent: boolean }>`
   border-radius: 5px;
   transition: 0.1s ease-in;
   pointer-events: none;
-  ${({ showContent }) =>
-    showContent
+  ${({ $showContent }) =>
+    $showContent
       ? css`
           display: block;
           pointer-events: visible;
@@ -82,10 +82,10 @@ export const Item = styled.li`
   }
 `;
 
-export const Icon = styled.span<{ showContent: boolean }>`
+export const Icon = styled.span<{ $showContent: boolean }>`
   line-height: 0;
-  ${({ showContent }) =>
-    showContent
+  ${({ $showContent }) =>
+    $showContent
       ? css`
           transform: rotate(-180deg);
         `

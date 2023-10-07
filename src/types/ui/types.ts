@@ -20,4 +20,13 @@ export type UiMenuType =
   | 'notifications'
   | 'navigation';
 
+export type UiOffersColumnType =
+  | 'prospectare'
+  | 'contact'
+  | 'oferte'
+  | 'nuAcum'
+  | 'comenzi'
+  | 'facturi'
+  | 'refuzClient';
+
 export type UiModalType = 'newEntryForm' | 'viewOptionsTable';

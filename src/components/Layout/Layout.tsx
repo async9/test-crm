@@ -19,7 +19,7 @@ const Layout: FC = () => {
     <>
       <Toaster position='top-right'></Toaster>
       {userToken ? (
-        <Container showSidebarMenu={showSidebarMenu}>
+        <Container $showSidebarMenu={showSidebarMenu}>
           <Sidebar />
           <div>
             <Header />
