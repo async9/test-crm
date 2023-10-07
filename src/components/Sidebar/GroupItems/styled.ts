@@ -29,6 +29,7 @@ export const Row = styled.div`
 export const TriggerText = styled.div<{ showSidebarMenu: boolean }>`
   min-width: max-content;
   ${bodyM}
+  color: ${({ theme }) => theme.colors.white};
   font-weight: 500;
   margin-left: 1rem;
   opacity: 0;
