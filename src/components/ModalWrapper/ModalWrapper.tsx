@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Dialog, Title } from './styled';
-import { Flex } from '@radix-ui/themes';
+import { Dialog, Title, Top } from './styled';
 import { Cross1Icon } from '@radix-ui/react-icons';
 import { IconButton } from '@/styles/mixins';
 
@@ -11,14 +10,15 @@ const ModalWrapper: React.FC<{
   title?: string;
 }> = ({ show, onClose, children, title }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (dialogRef.current) {
       if (show) {
         dialogRef.current.showModal();
+        document.body.style.overflow = 'hidden';
       } else {
         dialogRef.current.close();
+        document.body.style.overflow = 'initial';
       }
     }
   }, [show]);
@@ -35,24 +35,15 @@ const ModalWrapper: React.FC<{
     };
   }, [onClose]);
 
-  const handleBackdropClick = (event: React.MouseEvent) => {
-    if (
-      contentRef.current &&
-      !contentRef.current.contains(event.target as Node)
-    ) {
-      onClose();
-    }
-  };
-
   return (
-    <Dialog ref={dialogRef} onClick={handleBackdropClick}>
-      <Flex ref={contentRef} align='center' justify='between'>
+    <Dialog ref={dialogRef}>
+      <Top>
         <Title>{title}</Title>
         <IconButton onClick={() => onClose()} variant='light'>
           <Cross1Icon style={{ width: '20px', height: '20px' }} />
         </IconButton>
-      </Flex>
-      <div ref={contentRef}>{children}</div>
+      </Top>
+      <div>{children}</div>
     </Dialog>
   );
 };

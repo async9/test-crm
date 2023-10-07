@@ -40,7 +40,7 @@ export const Content = styled.div<{ showContent: boolean }>`
   position: absolute;
   top: 36px;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   border-radius: 5px;
