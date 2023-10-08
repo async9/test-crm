@@ -2,7 +2,15 @@ import { FC } from 'react';
 import SVG from 'react-inlinesvg';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
-import { Label, Icon, Row, TriggerText, ListItem, LinkItem } from './styled';
+import {
+  Label,
+  Icon,
+  Row,
+  TriggerText,
+  ListItem,
+  LinkItem,
+  AccordionContent,
+} from './styled';
 import { icons } from '../constants';
 import { selectShowMenu } from '@/store/ui/uiSelector';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
@@ -55,13 +63,7 @@ const GroupItems: FC<{ data: SidebarDataType }> = ({ data }) => {
               </Accordion.Trigger>
             </Accordion.Header>
             {showSidebarMenu ? (
-              <Accordion.Content
-                style={{
-                  margin: '0 0 1.2rem 1.2rem',
-                  paddingLeft: '1rem',
-                  borderLeft: '1px solid #999',
-                }}
-              >
+              <AccordionContent>
                 <ul>
                   {item.content.map((item, index: number) => (
                     <ListItem key={index}>
@@ -74,7 +76,7 @@ const GroupItems: FC<{ data: SidebarDataType }> = ({ data }) => {
                     </ListItem>
                   ))}
                 </ul>
-              </Accordion.Content>
+              </AccordionContent>
             ) : null}
           </Accordion.Item>
         ))}

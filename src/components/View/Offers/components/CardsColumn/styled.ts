@@ -11,3 +11,10 @@ export const Title = styled.div`
   ${bodyL}
   font-weight: 700;
 `;
+
+export const LoaderPosition = styled.div`
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateY(-50%);
+`;

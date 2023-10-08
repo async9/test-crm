@@ -1,3 +1,26 @@
+import { UiOffersColumnType } from '@/types/ui/types';
+import { QueryVariantType } from './types';
+
+export const dataColumns: {
+  id: number;
+  query: QueryVariantType;
+  variant: UiOffersColumnType;
+  label: string;
+}[] = [
+  { id: 1, variant: 'prospectare', label: 'Prospectare', query: 'PROSPECTARE' },
+  { id: 2, variant: 'contact', label: 'Agenda lucru', query: 'CONTACT' },
+  { id: 3, variant: 'oferte', label: 'Oferte', query: 'OFERTA' },
+  { id: 4, variant: 'nuAcum', label: 'Nu acum', query: 'NU_ACUM' },
+  { id: 5, variant: 'comenzi', label: 'Comenzi', query: 'COMANDA' },
+  { id: 6, variant: 'facturi', label: 'Facturi', query: 'FACTURA' },
+  {
+    id: 7,
+    variant: 'refuzClient',
+    label: 'Refuz client',
+    query: 'REFUZ_CLIENT',
+  },
+];
+
 export const selectTimeline = [
   { label: 'Luna curenta', value: 'month' },
   { label: 'Septamana curenta', value: 'week' },

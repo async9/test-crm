@@ -5,15 +5,10 @@ export const extendApiSlice = apiSlice.injectEndpoints({
     status: builder.mutation({
       query: (query) => {
         return {
-          url: `/leads/v2/status/${query}`,
+          url: `/leads/v2/status/${query.params}`,
           method: 'PUT',
           body: {
-            search: '',
-            searchType: '',
-            agents: [],
-            startDate: '2023-08-30',
-            endDate: '2023-09-30',
-            additionalAssignmentStatus: null,
+            ...query.body,
           },
         };
       },

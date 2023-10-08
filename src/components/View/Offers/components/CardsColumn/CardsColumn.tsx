@@ -9,20 +9,34 @@ import toast from 'react-hot-toast';
 import { useAppSelector } from '@/hooks/redux';
 import { selectShowOffersDataColumn } from '@/store/ui/uiSelector';
 import { UiOffersColumnType } from '@/types/ui/types';
+import { LoaderPosition } from '@/components/Header/components/Notifications/styled';
 
 const CardsColumn: FC<{
   query: QueryVariantType;
   variant: UiOffersColumnType;
   label: string;
-}> = ({ query, variant, label }) => {
+  additionalStatus: string | null;
+}> = ({ query, variant, label, additionalStatus }) => {
   const [status, { data, isLoading, isError }] = useStatusMutation();
   const showColumn = useAppSelector((state) =>
     selectShowOffersDataColumn(state, variant)
   );
 
   useEffect(() => {
-    status(query);
-  }, [query]);
+    if (showColumn) {
+      status({
+        params: query,
+        body: {
+          search: '',
+          searchType: '',
+          agents: [],
+          startDate: '2023-08-30',
+          endDate: '2023-09-30',
+          additionalAssignmentStatus: additionalStatus,
+        },
+      });
+    }
+  }, [query, additionalStatus, showColumn]);
 
   useEffect(() => {
     if (isError) {
@@ -32,11 +46,13 @@ const CardsColumn: FC<{
     }
   }, [isError]);
 
-  if (!data || !showColumn) return null;
-
   return (
     <Root>
-      <Loader show={isLoading} />
+      {isLoading ? (
+        <LoaderPosition>
+          <Loader />
+        </LoaderPosition>
+      ) : null}
       <Card size='1' style={{ marginBottom: '1rem' }}>
         <Flex align='center' justify='between' gap='2'>
           <Title>{label}</Title>
@@ -50,11 +66,15 @@ const CardsColumn: FC<{
           </Flex>
         </Flex>
       </Card>
-      {data && data.length
-        ? data.map((item: StatusDataType, index: number) => (
-            <CardItem key={index} data={item} />
-          ))
-        : null}
+      {data || showColumn ? (
+        <>
+          {data && data.length
+            ? data.map((item: StatusDataType) => (
+                <CardItem key={item.rootUuid} data={item} />
+              ))
+            : null}
+        </>
+      ) : null}
     </Root>
   );
 };

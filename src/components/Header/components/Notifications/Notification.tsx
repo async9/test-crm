@@ -9,9 +9,9 @@ import {
   Top,
   LoaderPosition,
 } from './styled';
-import { Badge, Button, Flex, Text } from '@radix-ui/themes';
+import { Badge, Button, Text } from '@radix-ui/themes';
 import { IconButton, MenuScroll } from '@/styles/mixins';
-import { ArrowRightIcon, CaretDownIcon } from '@radix-ui/react-icons';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 import mailIcon from '@/assets/icons/email.svg';
 import Loader from '@/components/Loader/Loader';
 
@@ -27,9 +27,11 @@ const Notifications: FC<{
 }> = ({ data }) => {
   return (
     <Root>
-      <LoaderPosition>
-        <Loader show={data.isFetching} />
-      </LoaderPosition>
+      {data.isFetching ? (
+        <LoaderPosition>
+          <Loader />
+        </LoaderPosition>
+      ) : null}
       <Top>
         <Button>Aboneaza-te</Button>
         <Text>
@@ -59,7 +61,7 @@ const Notifications: FC<{
                       <Box>
                         <Text>{item.description}</Text>
                         <IconButton>
-                          <ArrowRightIcon />
+                          <ArrowRightIcon style={{ width: 20 }} />
                         </IconButton>
                       </Box>
                     </CardBody>

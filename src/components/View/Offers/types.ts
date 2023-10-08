@@ -26,3 +26,8 @@ export type QueryVariantType =
   | 'COMANDA'
   | 'FACTURA'
   | 'REFUZ_CLIENT';
+
+export type QueryAdditionalAssigmentType =
+  | 'ASSIGNMENTS_EXPIRED'
+  | 'ASSIGNMENTS_FOR_TODAY'
+  | 'ASSIGNMENTS_FOR_THIS_MONTH';

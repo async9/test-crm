@@ -1,59 +1,23 @@
 import styled, { css, keyframes } from 'styled-components';
-import { scrollbar } from '@/styles/mixins';
 import { BREAKPOINTS } from '@/constants';
+import { scrollbar } from '@/styles/mixins';
 import sidebarBgImage from '@/assets/images/bg-sidebar.jpg';
 
 const growWidth = keyframes`
   from {
-    width: 0%;
+    width: 0;
   }
   to {
-    width: 70%;
-  }
-`;
-
-const growWidthS = keyframes`
-  from {
-    width: 0%;
-  }
-  to {
-    width: 40%;
-  }
-`;
-
-const growWidthM = keyframes`
-  from {
-    width: 0%;
-  }
-  to {
-    width: 30%;
+    width: 300px;
   }
 `;
 
 const shrinkWidth = keyframes`
   from {
-    width: 70%;
+    width: 300px;
   }
   to {
-    width: 0%;
-  }
-`;
-
-const shrinkWidthS = keyframes`
-  from {
-    width: 40%;
-  }
-  to {
-    width: 0%;
-  }
-`;
-
-const shrinkWidthM = keyframes`
-  from {
-    width: 30%;
-  }
-  to {
-    width: 0%;
+    width: 0;
   }
 `;
 
@@ -82,21 +46,9 @@ export const Root = styled.aside<{ $showSidebarMenu: boolean }>`
     $showSidebarMenu
       ? css`
           animation: ${growWidth} 0.3s ease-in forwards;
-          @media (${BREAKPOINTS.S}) {
-            animation: ${growWidthS} 0.3s ease-in forwards;
-          }
-          @media (${BREAKPOINTS.M}) {
-            animation: ${growWidthM} 0.3s ease-in forwards;
-          }
         `
       : css`
           animation: ${shrinkWidth} 0.3s ease-in forwards;
-          @media (${BREAKPOINTS.S}) {
-            animation: ${shrinkWidthS} 0.3s ease-in forwards;
-          }
-          @media (${BREAKPOINTS.M}) {
-            animation: ${shrinkWidthM} 0.3s ease-in forwards;
-          }
         `}
   @media (${BREAKPOINTS.S}) {
     min-width: 64px;
