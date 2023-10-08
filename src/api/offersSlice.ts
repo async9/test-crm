@@ -18,7 +18,14 @@ export const extendApiSlice = apiSlice.injectEndpoints({
         };
       },
     }),
+    getMessages: builder.query({
+      query: (query) => {
+        return {
+          url: `/assignment${query}`,
+        };
+      },
+    }),
   }),
 });
 
-export const { useStatusMutation } = extendApiSlice;
+export const { useStatusMutation, useGetMessagesQuery } = extendApiSlice;

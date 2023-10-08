@@ -9,13 +9,13 @@ export const Root = styled.div`
   right: 0;
   width: 100%;
   overflow: hidden;
-  border-radius: 6px;
-  border: 2px solid ${({ theme }) => theme.colors.borderDark};
   @media (${BREAKPOINTS.S}) {
     top: 64px;
     right: 1rem;
     max-width: 350px;
     padding: 0;
+    border-radius: 6px;
+    border: 2px solid ${({ theme }) => theme.colors.borderDark};
   }
 `;
 

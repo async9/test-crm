@@ -1,14 +1,10 @@
 import { FC } from 'react';
-import { Root, Spin } from './styled';
+import { Spin } from './styled';
 
 const Loader: FC<{ show: boolean }> = ({ show }) => {
   if (!show) return null;
 
-  return (
-    <Root>
-      <Spin />
-    </Root>
-  );
+  return <Spin />;
 };
 
 export default Loader;

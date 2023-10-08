@@ -139,6 +139,10 @@ export const Button = styled.button`
 `;
 
 export const Body = styled.div`
+  padding-right: 1rem;
+`;
+
+export const List = styled.div`
   height: 892px;
   overflow-y: auto;
   overflow-x: hidden;

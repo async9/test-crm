@@ -5,14 +5,6 @@ const spin = keyframes`
   100% { transform: rotate(360deg); }
 `;
 
-export const Root = styled.div`
-  position: absolute;
-  top: 10rem;
-  left: 50%;
-  transform: translateY(-50%);
-  z-index: 9;
-`;
-
 export const Spin = styled.div`
   width: 35px;
   height: 35px;

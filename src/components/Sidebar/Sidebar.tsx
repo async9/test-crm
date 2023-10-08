@@ -4,7 +4,7 @@ import { selectShowMenu, selectSidebarData } from '@/store/ui/uiSelector';
 import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
 import { uiActions } from '@/store/ui/uiSlice';
 import GroupItems from './GroupItems/GroupItems';
-import { Button, Root, Top, Body } from './styled';
+import { Button, Root, Top, List, Body } from './styled';
 import { Theme } from '@radix-ui/themes';
 
 const Sidebar: FC = () => {
@@ -32,11 +32,13 @@ const Sidebar: FC = () => {
           </Button>
         </Top>
         <Body>
-          {sidebarData && sidebarData.length
-            ? sidebarData.map((item, index: number) => (
-                <GroupItems key={index} data={item} />
-              ))
-            : null}
+          <List>
+            {sidebarData && sidebarData.length
+              ? sidebarData.map((item, index: number) => (
+                  <GroupItems key={index} data={item} />
+                ))
+              : null}
+          </List>
         </Body>
       </Root>
     </Theme>

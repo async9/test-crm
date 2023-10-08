@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { Badge, Card, Flex } from '@radix-ui/themes';
-import { useStatusMutation } from '@/api/statusSlice';
+import { useStatusMutation } from '@/api/offersSlice';
 import { StatusDataType, QueryVariantType } from '../../types';
 import { Root, Title } from './styled';
 import CardItem from '../CardItem/CardItem';

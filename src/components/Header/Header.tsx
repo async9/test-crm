@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   Divider,
   Root,
@@ -28,6 +28,8 @@ import Profile from './components/Profile/Profile';
 import Targets from './components/Targets/Targets';
 import Navigation from './components/Navigation/Navigation';
 import { IconButton } from '@/styles/mixins';
+import { useGetMessagesQuery } from '@/api/offersSlice';
+import toast from 'react-hot-toast';
 
 const Header: FC = () => {
   const username = useAppSelector(selectUsername);
@@ -46,6 +48,15 @@ const Header: FC = () => {
   );
   const dispatch = useAppDispatch();
   const { isMobile } = useScreenSize();
+
+  const getMessages = useGetMessagesQuery('?limit=true');
+  const { data, isFetching, isError } = getMessages;
+
+  useEffect(() => {
+    if (isError) {
+      toast.error('Error: failed to get messages');
+    }
+  }, [isError]);
 
   return (
     <Theme appearance='dark' panelBackground='solid'>
@@ -150,7 +161,7 @@ const Header: FC = () => {
                   )
                 }
               >
-                <Notifications />
+                <Notifications data={{ data: data, isFetching }} />
               </MenuWrapper>
             ) : null}
             {showTargetsMenu ? (

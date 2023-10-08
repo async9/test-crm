@@ -1,14 +1,35 @@
 import { FC } from 'react';
 import SVG from 'react-inlinesvg';
-import { BodyCard, BodyContainer, Card, Root, Top } from './styled';
+import {
+  Box,
+  CardTop,
+  CardBody,
+  DateText,
+  Root,
+  Top,
+  LoaderPosition,
+} from './styled';
 import { Badge, Button, Flex, Text } from '@radix-ui/themes';
 import { IconButton, MenuScroll } from '@/styles/mixins';
 import { ArrowRightIcon, CaretDownIcon } from '@radix-ui/react-icons';
 import mailIcon from '@/assets/icons/email.svg';
+import Loader from '@/components/Loader/Loader';
 
-const Notifications: FC = () => {
+type MessageType = {
+  startDate: string;
+  description: string;
+  taskRootUuid: string;
+  uuid: string;
+};
+
+const Notifications: FC<{
+  data: { data: MessageType[]; isFetching: boolean };
+}> = ({ data }) => {
   return (
     <Root>
+      <LoaderPosition>
+        <Loader show={data.isFetching} />
+      </LoaderPosition>
       <Top>
         <Button>Aboneaza-te</Button>
         <Text>
@@ -20,181 +41,33 @@ const Notifications: FC = () => {
         </Text>
       </Top>
       <MenuScroll>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                5 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-          <BodyContainer>
-            <BodyCard>
-              <div>
-                <Text style={{ fontWeight: '700', marginBottom: 'rem' }}>
-                  Notification title
-                </Text>
-                <br />
-                <Text>Some description example...</Text>
-              </div>
-              <IconButton style={{ marginLeft: '2rem' }}>
-                <ArrowRightIcon />
-              </IconButton>
-            </BodyCard>
-          </BodyContainer>
-        </Card>
-
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                4 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                4 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                4 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                3 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                3 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                2 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                2 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                2 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                1 Oct 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                29 Sep 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
-        <Card>
-          <Flex align='center' justify='between'>
-            <Flex align='center'>
-              <SVG src={mailIcon} title='Mail icon' />
-              <Text style={{ marginLeft: '1rem', fontWeight: '600' }}>
-                27 Sep 2023
-              </Text>
-            </Flex>
-            <IconButton>
-              <CaretDownIcon />
-            </IconButton>
-          </Flex>
-        </Card>
+        <ul>
+          {data.data && data.data.length
+            ? data.data.map((item) => (
+                <li key={item.uuid}>
+                  <a
+                    href={`${import.meta.env.VITE_DOMAIN}/#/offers/details/${
+                      item.taskRootUuid
+                    }`}
+                    target='_blank'
+                  >
+                    <CardTop>
+                      <SVG src={mailIcon} title='Mail icon' />
+                      <DateText>{item.startDate}</DateText>
+                    </CardTop>
+                    <CardBody>
+                      <Box>
+                        <Text>{item.description}</Text>
+                        <IconButton>
+                          <ArrowRightIcon />
+                        </IconButton>
+                      </Box>
+                    </CardBody>
+                  </a>
+                </li>
+              ))
+            : null}
+        </ul>
       </MenuScroll>
     </Root>
   );
