@@ -12,10 +12,10 @@ import {
   Text,
   TextField,
 } from '@radix-ui/themes';
-import { useAppDispatch } from '../../../../../hooks/redux';
-import { useLoginMutation } from '../../../../../api/auth';
-import { userActions } from '../../../../../store/user/userSlice';
 import { uiActions } from '@/store/ui/uiSlice';
+import { userActions } from '@/store/user/userSlice';
+import { useLoginMutation } from '@/api/auth';
+import { useAppDispatch } from '@/hooks/redux';
 
 const cookies = new Cookies();
 type InputType = 'email' | 'password';
@@ -28,7 +28,7 @@ const AuthForm: FC = () => {
     email: 'agent1@carettatest',
     password: '123456',
   });
-  const [login, { isLoading, isError, error }] = useLoginMutation();
+  const [login] = useLoginMutation();
   const navigate = useNavigate();
 
   const { user, email, password } = formData || {};

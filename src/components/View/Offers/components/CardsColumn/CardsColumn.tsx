@@ -46,6 +46,8 @@ const CardsColumn: FC<{
     }
   }, [isError]);
 
+  if (!showColumn) return null;
+
   return (
     <Root>
       {isLoading ? (
@@ -66,15 +68,11 @@ const CardsColumn: FC<{
           </Flex>
         </Flex>
       </Card>
-      {data || showColumn ? (
-        <>
-          {data && data.length
-            ? data.map((item: StatusDataType) => (
-                <CardItem key={item.rootUuid} data={item} />
-              ))
-            : null}
-        </>
-      ) : null}
+      {data && data.length
+        ? data.map((item: StatusDataType) => (
+            <CardItem key={item.rootUuid} data={item} />
+          ))
+        : null}
     </Root>
   );
 };
