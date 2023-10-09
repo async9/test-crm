@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { BREAKPOINTS } from '@/constants';
 import { scrollbar } from '@/styles/mixins';
-import sidebarBgImage from '@/assets/images/bg-sidebar.jpg';
+import sidebarBgImage from '@/assets/images/bg-sidebar.webp';
 
 const growWidth = keyframes`
   from {

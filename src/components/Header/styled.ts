@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BREAKPOINTS } from '../../constants';
 import { bodyS, bodyXS } from '@/styles/typography';
-import headerBgImage from '@/assets/images/bg-header.jpg';
+import headerBgImage from '@/assets/images/bg-header.webp';
 
 export const Root = styled.header`
   position: fixed;
@@ -63,4 +63,19 @@ export const UserLabel = styled.div`
   ${bodyXS}
   font-weight: 500;
   color: ${({ theme }) => theme.colors.greyLight};
+`;
+
+export const NotifBox = styled.div`
+  position: relative;
+`;
+
+export const NotifIndicator = styled.div`
+  position: absolute;
+  top: 3px;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid ${({ theme }) => theme.colors.alertLight};
+  background-color: ${({ theme }) => theme.colors.alert};
 `;

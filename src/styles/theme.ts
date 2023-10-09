@@ -12,5 +12,7 @@ export const defaultTheme: DefaultTheme = {
     textDark: '#1c2024',
     borderLight: '#e0e1e6',
     borderDark: '#3a3f43',
+    alert: '#cc2065',
+    alertLight: '#faebf3',
   },
 };

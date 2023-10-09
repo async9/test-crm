@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BREAKPOINTS } from '@/constants';
 import { bodyXL } from '@/styles/typography';
-import menuCardToBgImage from '@/assets/images/bg-menu.jpg';
+import menuCardToBgImage from '@/assets/images/bg-menu.webp';
 
 export const Root = styled.div`
   position: fixed;

@@ -18,6 +18,7 @@ import {
   Top,
 } from './styled';
 import { IconButton, MenuScroll } from '@/styles/mixins';
+import { uiActions } from '@/store/ui/uiSlice';
 
 const cookies = new Cookies();
 
@@ -27,6 +28,12 @@ const Profile: FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    dispatch(
+      uiActions.showMenu({
+        variant: 'user',
+        show: false,
+      })
+    );
     cookies.remove('accessToken', { path: '/' });
     dispatch(userActions.removeUserToken());
     navigate('/login', { replace: true });

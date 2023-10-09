@@ -7,6 +7,8 @@ import {
   UserLabel,
   UserName,
   Box,
+  NotifBox,
+  NotifIndicator,
 } from './styled';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { selectUsername } from '../../store/user/userSelects';
@@ -80,7 +82,7 @@ const Header: FC = () => {
               dispatch(
                 uiActions.showMenu({
                   variant: 'navigation',
-                  show: !showNavigationMenu,
+                  show: true,
                 })
               )
             }
@@ -93,7 +95,7 @@ const Header: FC = () => {
               dispatch(
                 uiActions.showMenu({
                   variant: 'targets',
-                  show: !showTargetsMenu,
+                  show: true,
                 })
               )
             }
@@ -106,12 +108,15 @@ const Header: FC = () => {
               dispatch(
                 uiActions.showMenu({
                   variant: 'notifications',
-                  show: !showNotificationsMenu,
+                  show: true,
                 })
               )
             }
           >
-            <BellIcon />
+            <NotifBox>
+              <NotifIndicator />
+              <BellIcon />
+            </NotifBox>
           </IconButton>
           <Divider />
           <Box>
@@ -121,7 +126,7 @@ const Header: FC = () => {
                 dispatch(
                   uiActions.showMenu({
                     variant: 'user',
-                    show: !showUserMenu,
+                    show: true,
                   })
                 )
               }
