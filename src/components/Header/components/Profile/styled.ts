@@ -60,6 +60,7 @@ export const ListItem = styled.li`
     transition: 0.3s linear;
     &:hover {
       cursor: pointer;
+      color: ${({ theme }) => theme.colors.white};
       background-color: ${({ theme }) => theme.colors.primary};
     }
   }
